@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Palabras en un Archivo de Texto</title>
+</head>
+<body>
+    <div>
+        <label for="archivo">Selecciona un archivo de texto:</label>
+        <input type="file" id="archivo" accept=".txt" onchange="mostrarContenido()">
+    </div>
+    <div>
+        <label for="palabra">Introduce la palabra a buscar:</label>
+        <input type="text" id="palabra">
+    </div>
+    <button onclick="buscarPalabraEnArchivo()">Buscar Palabra</button>
+    <h2>Nombre del archivo seleccionado:</h2>
+    <p id="nombreArchivo"></p>
+    <h2>Contenido del archivo:</h2>
+    <pre id="contenidoArchivo"></pre>
+    <h2>Resultado con coincidencias coloreadas:</h2>
+    <div id="resultadoColoreado">
+    </div>
+
+    <script>
+        function mostrarContenido() {
+            const archivoInput = document.getElementById("archivo");
+            const nombreArchivoElement = document.getElementById("nombreArchivo");
+            const contenidoArchivoElement = document.getElementById("contenidoArchivo");
+
+            if (archivoInput.files && archivoInput.files.length > 0) {
+                const archivo = archivoInput.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function (event) {
+                    const contenido = event.target.result;
+                    nombreArchivoElement.textContent = archivo.name;
+                    contenidoArchivoElement.textContent = contenido;
+                };
+
+                reader.readAsText(archivo);
+            } else {
+                nombreArchivoElement.textContent = "";
+                contenidoArchivoElement.textContent = "";
+            }
+        }
+
+        function buscarPalabraEnArchivo() {
+            const palabra = document.getElementById("palabra").value.toLowerCase();
+            const contenido = document.getElementById("contenidoArchivo").textContent;
+            const resultadoColoreado = document.getElementById("resultadoColoreado");
+
+            if (!contenido) {
+                resultadoColoreado.textContent = "Por favor, selecciona un archivo de texto.";
+                return;
+            }
+
+            const palabras = contenido.split(/\s+/);
+            const palabrasSeleccionadas = palabras.filter((p) => p.toLowerCase() === palabra);
+
+            resultadoColoreado.innerHTML = palabrasSeleccionadas.map((p) => {
+                return `<span style="background-color: yellow;">${p}</span>`;
+            }).join(' ');
+        }
+    </script>
+</body>
+</html>
