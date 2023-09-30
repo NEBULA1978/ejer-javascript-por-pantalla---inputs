@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Palabras</title>
+</head>
+<body>
+    <div>
+        <h1>Buscador de Palabras</h1>
+        <p>Introduce una palabra o frase para buscar:</p>
+        <input type="text" id="busqueda">
+        <button onclick="buscar()">Buscar</button>
+    </div>
+    <div id="resultado">
+        <p>Resultado de la búsqueda:</p>
+        <div id="contenido">
+            Este es un texto con algunas palabras que se pueden buscar. Por ejemplo, la palabra "palabra" aparece varias veces en el texto. También se puede buscar la frase "hola mundo".
+        </div>
+    </div>
+
+    <script>
+        function buscar() {
+            const palabra = document.getElementById("busqueda").value;
+            const contenido = document.getElementById("contenido");
+
+            if (!palabra) {
+                return;
+            }
+
+            const palabras = contenido.textContent.split(/\s+/);
+            const palabrasSeleccionadas = palabras.filter((p) => p.toLowerCase() === palabra.toLowerCase());
+
+            contenido.innerHTML = palabras.map((p) => {
+                if (p.toLowerCase() === palabra.toLowerCase()) {
+                    return `<span style="background-color: yellow;">${p}</span>`;
+                } else {
+                    return p;
+                }
+            }).join(' ');
+        }
+    </script>
+</body>
+</html>
