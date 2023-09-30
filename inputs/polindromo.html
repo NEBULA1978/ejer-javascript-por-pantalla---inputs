@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polindromo</title>
+</head>
+<body>
+    <div>
+        <label for="texto">Introduce una cadena de texto:</label>
+        <input type="text" id="texto">
+    </div>
+    <button onclick="comprobarPolindromo()">Comprobar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function comprobarPolindromo() {
+            const texto = document.getElementById("texto").value;
+            const invertido = texto
+                .split('') // dentro de invertido un array con .split
+                .reverse() //doy la vuelta al array
+                .join('') //lo que pongo enmedio comillas me separa las letras
+            ;
+
+            const resultado = invertido === texto;
+            document.getElementById("resultado").textContent = resultado ? "Es un palíndromo" : "No es un palíndromo";
+        }
+    </script>
+</body>
+</html>
