@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polindromo</title>
+</head>
+
+<body>
+    <script>
+        /*
+
+                                                        Dada una cadena de texto, comprobar si es polindromo o no.
+                                                        Se leen igual de dereacha a izquierda
+
+                                                        ejem:
+                                                        ana, bob, otto, allivessevilla
+
+                                                        No tener en cuenta espacios raros
+
+                                                        Como hacerlo:
+                                                        -Funcion con parametro "texto"
+                                                        -Separar-el-texto-en-un-array- de letras
+                                                        -Darle la vuelta
+                                                        -Unir el array de letras en un string y comparar con el parametro
+
+                                                        */
+
+        function palindromo(texto) {
+            let invertido = texto
+                .split('') // dentro de invertido un array con .split
+                .reverse() //doy la vuelta al array
+                .join('') //lo que pongo enmedio comillas me separa las letras
+            ;
+            return (invertido === texto); // Es lo mismo que abajo pero mas corto
+            //console.log(invertido)
+            /*
+            if(invertido === texto ){
+                return true;
+            }else{
+                return false;
+            }*/
+
+        }
+
+        console.log("Es un palindormo? " + palindromo("abccba"));
+        document.write("Es un palindormo? " + palindromo("abccba") + " <br/>");
+
+        console.log("Es un numero palindormo? " + palindromo("2134321"));
+        document.write("Es un numero palindormo? " + palindromo("2134321"));
+    </script>
+</body>
+
+</html>

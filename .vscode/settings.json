@@ -1,0 +1,17 @@
+{
+  "editor.fontSize" : 16 ,
+  "editor.formatOnPaste" : true ,
+  "editor.suggestSelection" : " first " ,
+  "editor.reglas" : [
+    100
+  ],
+  "editor.tabSize" : 2 ,
+  "editor.wordWrap" : " wordWrapColumn " ,
+  "explorer.confirmDelete" : false ,
+  "explorer.confirmDragAndDrop" : false ,
+  "explorer.excludeGitIgnore" : false ,
+  "archivos.autoguardado" : " onFocusChange " ,
+  "archivos.eol" : " \n " ,
+  "buscar.useGlobalIgnoreFiles" : true ,
+  "buscar.useIgnoreFiles" : true
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Suma y media de números</title>
+</head>
+<body>
+  <label>Introduce numeros:</label>
+  <input type="number" id="input-numero" autofocus>
+  <button onclick="agregarNumero()">Agregar</button>
+  <button onclick="calcular()">Calcular</button>
+  <p id="resultado"></p>
+
+  <script>
+    'use strict';
+
+    var numeros = [];
+
+    function agregarNumero() {
+      var inputNumero = document.getElementById('input-numero');
+      var numero = parseInt(inputNumero.value);
+
+      if (isNaN(numero)) {
+        alert('Introduce un número válido.');
+        inputNumero.value = '';
+        inputNumero.focus();
+        return;
+      }
+
+      numeros.push(numero);
+      inputNumero.value = '';
+      inputNumero.focus();
+    }
+
+    function calcular() {
+      if (numeros.length === 0) {
+        alert('Introduce al menos un número.');
+        return;
+      }
+
+      var suma = 0;
+      var contador = 0;
+
+      for (var i = 0; i < numeros.length; i++) {
+        suma += numeros[i];
+        contador++;
+      }
+
+      var resultado = document.getElementById('resultado');
+      resultado.innerHTML = `La suma de todos los numeros es: ${suma}<br>
+                            La media de todos los numeros es: ${suma / contador}`;
+
+      numeros = [];
+    }
+  </script>
+</body>
+</html>
