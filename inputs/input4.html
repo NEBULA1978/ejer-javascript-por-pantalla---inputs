@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mostrar Números Impares</title>
+    </head>
+    <body>
+        <h1>Mostrar Números Impares</h1>
+
+        <form>
+            <label for="numero1">Introduce el primer número:</label>
+            <input type="number" id="numero1" placeholder="Escribe un número"
+                required>
+
+            <label for="numero2">Introduce el segundo número:</label>
+            <input type="number" id="numero2" placeholder="Escribe otro número"
+                required>
+
+            <button type="button" id="mostrarNumerosImpares">Mostrar Impares</button>
+        </form>
+
+        <div id="resultado"></div>
+
+        <!-- <script src="script.js"></script> -->
+        <script>
+        'use strict';
+
+document.getElementById('mostrarNumerosImpares').addEventListener('click', function () {
+    var numero1 = parseInt(document.getElementById('numero1').value);
+    var numero2 = parseInt(document.getElementById('numero2').value);
+
+    var resultado = '';
+
+    while (numero1 < numero2) {
+        numero1++;
+
+        if (numero1 % 2 !== 0) {
+            resultado += "El " + numero1 + " es impar<br>";
+        }
+    }
+
+    document.getElementById('resultado').innerHTML = resultado;
+});
+
+    </script>
+    </body>
+</html>

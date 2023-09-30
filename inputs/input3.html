@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="frase">Introduce la frase:</label>
+        <input type="text" id="frase" />
+    </div>
+    <div>
+        <label for="palabra">Introduce la palabra a buscar:</label>
+        <input type="text" id="palabra" />
+    </div>
+    <button onclick="calcularCoincidencias()">Calcular Coincidencias</button>
+    <p id="resultado"></p>
+
+    <script>
+        /*
+        Dada una palabra buscarla en una frase y devolver cuantas veces aparece en ella.
+
+        La frase y la palabra deben ser parámetros de una función.
+
+        Ejemplo:
+        coincidencias("soy la frase", "victor") // Devuelve: 0
+
+        COMO HACERLO:
+
+        - Función con dos parámetros "frase" y "busqueda"
+        - Poner string en minúsculas y limpiarlo (eliminar puntos, comas, guiones, etc.)
+        - Comprobar si la búsqueda está incluida en la frase
+        - Mapear esas palabras y hacer un contador de cada una (dentro de un objeto JSON)
+        - Devolver el contador de la búsqueda
+        */
+
+        // Limpiar frase de puntos y comas, etc:
+
+        function coincidencias(frase, busqueda) {
+            let text_limpio = frase.toLowerCase().replace(/[!¿?.,=]/gi, "");
+            let resultado = 0;
+
+            if (text_limpio.includes(busqueda)) {
+                let palabras = text_limpio.split(" ");
+                let mapa = {};
+
+                for (let palabra of palabras) {
+                    if (mapa[palabra]) {
+                        mapa[palabra]++;
+                    } else {
+                        mapa[palabra] = 1;
+                    }
+                }
+
+                resultado = mapa[busqueda];
+            } else {
+                resultado = 0;
+            }
+            return resultado;
+        }
+
+        function calcularCoincidencias() {
+            let frase = document.getElementById("frase").value;
+            let palabra = document.getElementById("palabra").value;
+            let resultado = coincidencias(frase, palabra);
+
+            document.getElementById("resultado").textContent = "Número de coincidencias en la frase: " + resultado;
+        }
+    </script>
+</body>
+
+</html>
