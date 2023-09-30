@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablas de Multiplicar</title>
+</head>
+<body>
+    <h1>Tabla de Multiplicar</h1>
+    <p>Introduce un número para ver su tabla de multiplicar:</p>
+    <input type="number" id="numeroInput" placeholder="Escribe un número">
+    <button onclick="mostrarTabla()">Mostrar Tabla</button>
+    <div id="tablaResultado"></div>
+
+    <h1>Todas las Tablas de Multiplicar</h1>
+    <p>Introduce un número para mostrar todas las tablas de multiplicar hasta ese número:</p>
+    <input type="number" id="numeroTablasInput" placeholder="Escribe un número">
+    <button onclick="mostrarTodasLasTablas()">Mostrar Todas las Tablas</button>
+    <div id="todasLasTablasResultado"></div>
+
+    <script>
+        function mostrarTabla() {
+            var numero = parseInt(document.getElementById("numeroInput").value);
+            var tablaResultado = document.getElementById("tablaResultado");
+            tablaResultado.innerHTML = "";
+
+            if (isNaN(numero)) {
+                alert("Por favor, introduce un número válido.");
+                return;
+            }
+
+            tablaResultado.innerHTML += "<h2>Tabla del " + numero + "</h2>";
+            for (var i = 1; i <= 10; i++) {
+                tablaResultado.innerHTML += i + " x " + numero + " = " + (i * numero) + "<br/>";
+            }
+        }
+
+        function mostrarTodasLasTablas() {
+            var numTablas = parseInt(document.getElementById("numeroTablasInput").value);
+            var todasLasTablasResultado = document.getElementById("todasLasTablasResultado");
+            todasLasTablasResultado.innerHTML = "";
+
+            if (isNaN(numTablas)) {
+                alert("Por favor, introduce un número válido.");
+                return;
+            }
+
+            for (var c = 1; c <= numTablas; c++) {
+                todasLasTablasResultado.innerHTML += "<h2>Tabla del " + c + "</h2>";
+                for (var i = 1; i <= 10; i++) {
+                    todasLasTablasResultado.innerHTML += i + " x " + c + " = " + (i * c) + "<br/>";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

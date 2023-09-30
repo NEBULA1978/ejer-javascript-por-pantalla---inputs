@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Películas</title>
+</head>
+<body>
+    <h1>Gestión de Películas</h1>
+    
+    <label for="nuevaPelicula">Nueva Película:</label>
+    <input type="text" id="nuevaPelicula">
+    <button onclick="agregarPelicula()">Agregar Película</button>
+    
+    <h2>Listado de Películas:</h2>
+    <ul id="listaPeliculas"></ul>
+
+    <label for="buscarPelicula">Buscar Película:</label>
+    <input type="text" id="buscarPelicula">
+    <button onclick="buscarPelicula()">Buscar</button>
+
+    <button onclick="mostrarPeliculas()">Mostrar Todas</button>
+
+    <script>
+        'use strict';
+
+        var peliculas = ['La verdad duele', 'La vida es bella', 'Gran torino'];
+
+        function mostrarPeliculas() {
+            var lista = document.getElementById('listaPeliculas');
+            lista.innerHTML = ""; // Limpiar la lista antes de volver a mostrarla
+
+            for (var i = 0; i < peliculas.length; i++) {
+                var item = document.createElement('li');
+                item.textContent = peliculas[i];
+                
+                // Agregar botón para eliminar película
+                var eliminarBtn = document.createElement('button');
+                eliminarBtn.textContent = 'Eliminar';
+                eliminarBtn.onclick = function() {
+                    eliminarPelicula(this.previousSibling.textContent);
+                };
+                item.appendChild(eliminarBtn);
+
+                lista.appendChild(item);
+            }
+        }
+
+        mostrarPeliculas(); // Mostrar la lista inicial de películas
+
+        function agregarPelicula() {
+            var nuevaPelicula = document.getElementById('nuevaPelicula').value;
+            
+            if (nuevaPelicula) {
+                peliculas.push(nuevaPelicula);
+                mostrarPeliculas();
+                document.getElementById('nuevaPelicula').value = ""; // Limpiar el campo de entrada
+            }
+        }
+
+        function eliminarPelicula(nombre) {
+            var indice = peliculas.indexOf(nombre);
+            
+            if (indice > -1) {
+                peliculas.splice(indice, 1);
+                mostrarPeliculas(); // Actualizar la lista después de eliminar
+            }
+        }
+
+        function buscarPelicula() {
+            var buscarTexto = document.getElementById('buscarPelicula').value;
+            
+            if (buscarTexto) {
+                var peliculasEncontradas = peliculas.filter(function(pelicula) {
+                    return pelicula.toLowerCase().includes(buscarTexto.toLowerCase());
+                });
+
+                var lista = document.getElementById('listaPeliculas');
+                lista.innerHTML = ""; // Limpiar la lista antes de mostrar los resultados
+
+                if (peliculasEncontradas.length === 0) {
+                    var item = document.createElement('li');
+                    item.textContent = 'No se encontraron películas.';
+                    lista.appendChild(item);
+                } else {
+                    for (var i = 0; i < peliculasEncontradas.length; i++) {
+                        var item = document.createElement('li');
+                        item.textContent = peliculasEncontradas[i];
+                        lista.appendChild(item);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

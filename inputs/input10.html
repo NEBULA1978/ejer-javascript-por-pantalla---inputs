@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Frutas</title>
+</head>
+<body>
+    <h1>Listado de Frutas</h1>
+    
+    <p>Agregar una nueva fruta:</p>
+    <input type="text" id="nuevaFruta" placeholder="Escribe una fruta">
+    <button onclick="agregarFruta()">Agregar</button>
+    
+    <p>Lista de frutas:</p>
+    <ul id="listaFrutas">
+        <li>Naranja</li>
+        <li>Manzana</li>
+    </ul>
+    
+    <p>Modificar fruta en la posición:</p>
+    <input type="number" id="posicion" placeholder="Posición">
+    <input type="text" id="nuevaFrutaModificada" placeholder="Nueva fruta">
+    <button onclick="modificarFruta()">Modificar</button>
+    
+    <p>Eliminar fruta en la posición:</p>
+    <input type="number" id="posicionEliminar" placeholder="Posición">
+    <button onclick="eliminarFruta()">Eliminar</button>
+
+    <script>
+        function agregarFruta() {
+            var nuevaFruta = document.getElementById("nuevaFruta").value;
+            var listaFrutas = document.getElementById("listaFrutas");
+
+            if (nuevaFruta.trim() !== "") {
+                var nuevoElemento = document.createElement("li");
+                nuevoElemento.textContent = nuevaFruta;
+                listaFrutas.appendChild(nuevoElemento);
+            }
+
+            document.getElementById("nuevaFruta").value = "";
+        }
+
+        function modificarFruta() {
+            var posicion = parseInt(document.getElementById("posicion").value);
+            var nuevaFrutaModificada = document.getElementById("nuevaFrutaModificada").value;
+            var listaFrutas = document.getElementById("listaFrutas");
+            var elementos = listaFrutas.getElementsByTagName("li");
+
+            if (posicion >= 1 && posicion <= elementos.length) {
+                elementos[posicion - 1].textContent = nuevaFrutaModificada;
+            }
+
+            document.getElementById("posicion").value = "";
+            document.getElementById("nuevaFrutaModificada").value = "";
+        }
+
+        function eliminarFruta() {
+            var posicionEliminar = parseInt(document.getElementById("posicionEliminar").value);
+            var listaFrutas = document.getElementById("listaFrutas");
+            var elementos = listaFrutas.getElementsByTagName("li");
+
+            if (posicionEliminar >= 1 && posicionEliminar <= elementos.length) {
+                listaFrutas.removeChild(elementos[posicionEliminar - 1]);
+            }
+
+            document.getElementById("posicionEliminar").value = "";
+        }
+    </script>
+</body>
+</html>

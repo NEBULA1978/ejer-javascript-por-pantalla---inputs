@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Divisores de un número</title>
+</head>
+<body>
+    <h1>Divisores de un número</h1>
+    <p>Introduce un número:</p>
+    <input type="number" id="numeroInput" placeholder="Escribe un número">
+    <button onclick="mostrarDivisores()">Mostrar Divisores</button>
+    <div id="resultado"></div>
+
+    <script>
+        function mostrarDivisores() {
+            var numero = parseInt(document.getElementById("numeroInput").value);
+            var divisores = [];
+
+            for (var i = 1; i <= numero; i++) {
+                if (numero % i === 0) {
+                    divisores.push(i);
+                }
+            }
+
+            var resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = "<p>Divisores de " + numero + ":</p>";
+            resultadoDiv.innerHTML += "<p>" + divisores.join(", ") + "</p>";
+        }
+    </script>
+</body>
+</html>

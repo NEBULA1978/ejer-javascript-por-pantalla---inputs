@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Par o Impar</title>
+</head>
+<body>
+    <h1>Par o Impar</h1>
+    <p>Introduce un número:</p>
+    <input type="number" id="numeroInput" placeholder="Escribe un número">
+    <button onclick="verificarParImpar()">Verificar Par o Impar</button>
+    <div id="resultado"></div>
+
+    <script>
+        function verificarParImpar() {
+            var numero = parseInt(document.getElementById("numeroInput").value);
+
+            if (isNaN(numero)) {
+                alert("Por favor, introduce un número válido.");
+                return;
+            }
+
+            var resultadoDiv = document.getElementById("resultado");
+            if (numero % 2 === 0) {
+                resultadoDiv.innerHTML = "<p>El número " + numero + " es par.</p>";
+            } else {
+                resultadoDiv.innerHTML = "<p>El número " + numero + " es impar.</p>";
+            }
+        }
+    </script>
+</body>
+</html>

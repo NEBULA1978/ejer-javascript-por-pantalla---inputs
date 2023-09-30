@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <p>Introduce dos números:</p>
+    <input type="number" id="numero1Input" placeholder="Escribe el primer número">
+    <input type="number" id="numero2Input" placeholder="Escribe el segundo número">
+    <button onclick="calcular()">Calcular</button>
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var numero1 = parseInt(document.getElementById("numero1Input").value);
+            var numero2 = parseInt(document.getElementById("numero2Input").value);
+            var resultadoDiv = document.getElementById("resultado");
+
+            if (isNaN(numero1) || isNaN(numero2)) {
+                alert("Por favor, introduce números válidos.");
+                return;
+            }
+
+            var suma = numero1 + numero2;
+            var resta = numero1 - numero2;
+            var multiplicacion = numero1 * numero2;
+            var division = numero1 / numero2;
+
+            resultadoDiv.innerHTML = "La suma es: " + suma + "<br/>" +
+                "La resta es: " + resta + "<br/>" +
+                "La multiplicación es: " + multiplicacion + "<br/>" +
+                "La división es: " + division + "<br/>";
+        }
+    </script>
+</body>
+</html>

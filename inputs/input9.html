@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <p>Introduce dos números:</p>
+    <input type="number" id="numero1Input" placeholder="Escribe el primer número">
+    <input type="number" id="numero2Input" placeholder="Escribe el segundo número">
+    <button onclick="calcular()">Calcular</button>
+    <div id="resultado"></div>
+
+    <script>
+        function porPantalla(numero1, numero2) {
+            var resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML += "Suma: " + (numero1 + numero2) + "<br/>";
+            resultadoDiv.innerHTML += "Resta: " + (numero1 - numero2) + "<br/>";
+            resultadoDiv.innerHTML += "Multiplicación: " + (numero1 * numero2) + "<br/>";
+            resultadoDiv.innerHTML += "División: " + (numero1 / numero2) + "<br/>";
+            resultadoDiv.innerHTML += "***********************************" + "<br/>";
+        }
+
+        function calcular() {
+            var numero1 = parseInt(document.getElementById("numero1Input").value);
+            var numero2 = parseInt(document.getElementById("numero2Input").value);
+            var resultadoDiv = document.getElementById("resultado");
+
+            if (isNaN(numero1) || isNaN(numero2)) {
+                alert("Por favor, introduce números válidos.");
+                return;
+            }
+
+            porPantalla(numero1, numero2);
+        }
+    </script>
+</body>
+</html>

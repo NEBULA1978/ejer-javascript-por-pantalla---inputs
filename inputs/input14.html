@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con JavaScript</title>
+</head>
+<body>
+    <h1>Formulario con JavaScript</h1>
+    
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre">
+    
+    <label for="apellidos">Apellidos:</label>
+    <input type="text" id="apellidos">
+    
+    <button onclick="mostrarDatos()">Mostrar Datos</button>
+    
+    <h2>Datos Ingresados:</h2>
+    <p id="datosMostrados"></p>
+
+    <script>
+        'use strict';
+
+        function mostrarDatos() {
+            var nombre = document.getElementById('nombre').value;
+            var apellidos = document.getElementById('apellidos').value;
+            
+            var datos = "Nombre: " + nombre + "<br>Apellidos: " + apellidos;
+
+            document.getElementById('datosMostrados').innerHTML = datos;
+        }
+    </script>
+</body>
+</html>
