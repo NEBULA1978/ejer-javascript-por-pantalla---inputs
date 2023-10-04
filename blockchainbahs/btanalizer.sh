@@ -3,7 +3,7 @@
 # Author: Marcelo Vázquez (aka S4vitar)
 # Modifications to PyBlock (pip3 install pybitblock)
 
-# Colours
+# Colores
 greenColour="\e[0;32m\033[1m"
 endColour="\033[0m\e[0m"
 redColour="\e[0;31m\033[1m"
@@ -41,27 +41,28 @@ function helpPanel() {
   exit 1
 }
 
-function unconfirmed_transactions() {
-  # Add code here to list unconfirmed transactions
-  echo "Listing unconfirmed transactions"
+function list_unconfirmed_transactions() {
+  # Agregar código aquí para listar transacciones no confirmadas
+  echo "Listando transacciones no confirmadas"
 
-  echo '' >htmlblokchain.log
+  echo '' > htmlblockchain.log
 
-  while [ "$(cat htmlblokchain.log | wc -1)" == "1" ]; do
-  curl -L "$unconfirmed_transactions" | html2text >htmlblokchain.log
+  while [ "$(cat htmlblockchain.log | wc -l)" == "1" ]; do
+    curl -L "$unconfirmed_transactions" | html2text > htmlblockchain.log
   done
 
-  hashes="$( cat htmlblokchain.log | grep -F "Hash" -A 1 | grep -v "\--")"
+  hashes="$(cat htmlblockchain.log | grep -F "Hash" -A 1 | grep -v "\--" | sed 's/Hash_//')"
 
-  echo $hashes
+  echo "$hashes"
 
-  # Para filtradosde hases diferente al videocambiaron
-  # cat htmlblokchain.log | grep -F "Hash" -A 1 | grep -v "\--"
+  # Para filtrar hashes diferente al video cambiaron
+  # cat htmlblockchain.log | grep -F "Hash" -A 1 | grep -v "\--" | sed 's/Hash_//'
 
   tput cnorm
 }
 
-# Main script
+
+# Script principal
 parameter_counter=0
 while getopts "e:h:" arg; do
   case $arg in
@@ -78,9 +79,9 @@ tput civis
 if [ $parameter_counter -eq 0 ]; then
   helpPanel
 else
-  if [ "$(echo $exploration_mode)" == "unconfirmed_transactions" ]; then
-    unconfirmed_transactions
+  if [ "$(echo "$exploration_mode")" == "unconfirmed_transactions" ]; then
+    list_unconfirmed_transactions
   fi
 fi
 
-# Add more exploration modes and functions as needed
+# Agregar más modos de exploración y funciones según sea necesario
