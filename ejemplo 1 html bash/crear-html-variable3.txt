@@ -1,5 +1,11 @@
 #!/bin/bash
 
+trap ctrl_c INT
+
+function control_c() {
+  echo "Saliendo"
+}
+
 # Solicitar nombres de variables al usuario
 echo "Introducir el nombre del ID del primer número"
 read -p "Introduce el nombre de la primera variable (por ejemplo, var1): " variable1
