@@ -49,13 +49,14 @@ function list_unconfirmed_transactions() {
     echo "Descarga completada."
   fi
 
-  # Extraer y mostrar los números de hash
-  hashes="$(grep -F "Hash" -A 1 htmlblockchain.log | grep -v "\--" | sed 's/Hash_//')"
+  # Extraer y mostrar solo los números de hash
+  hashes="$(grep -F "Hash" -A 1 htmlblockchain.log | grep -v "\--" | sed 's/Hash_//' | grep -o '[0-9a-f]\{4\}-[0-9a-f]\{4\}')"
 
   echo "$hashes"
 
   tput cnorm
 }
+
 
 
 
