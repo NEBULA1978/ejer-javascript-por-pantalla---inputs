@@ -1,0 +1,20 @@
+Pso 1:
+
+❯ ./btanalizer.sh
+
+[!] Uso: ./btcAnalyzer
+--------------------------------------------------------------------------------
+
+        [-e] Modo exploración
+                unconfirmed_transactions:        Listar transacciones no confirmadas
+                inspect:                         Inspeccionar un hash
+                address:                         Inspeccionar una dirección
+❯ ./btanalizer.sh -e hola
+Hola
+❯ ./btanalizer.sh -e adios
+Hola
+
+    ~/E/j/ejer javascript por pantalla - inputs/blockchainbahs  ✔ 
+
+Pso 2:
+
