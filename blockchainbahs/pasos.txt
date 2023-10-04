@@ -38,12 +38,16 @@ Pso 2:
 
 /////////////////////////////////
 
+❯ ./btanalizer.sh -e unconfirmed_transactions
+Listing unconfirmed transactions
 
+    ~/E/j/ejer javascript por pantalla - inputs/blockchainbahs  ✔  
 
 /////////////////////////////////
 /////////////////////////////////
 
-
+Han cambiado y tebgo que poner este parametro para ver
+    ~/E/j/ejer javascript por pantalla - inputs/blockchainbahs  ✔  took  8s  curl -L https://www.blockchain.com/es/btc/unconfirmed-transactions -o output.html
 
 /////////////////////////////////
 /////////////////////////////////

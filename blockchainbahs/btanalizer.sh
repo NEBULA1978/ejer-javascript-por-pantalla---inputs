@@ -42,6 +42,7 @@ function helpPanel(){
 function unconfirmed_transactions(){
   echo "Listing unconfirmed transactions"
   # Add code here to list unconfirmed transactions
+  tput cnorm;
 }
 
 # Main script
