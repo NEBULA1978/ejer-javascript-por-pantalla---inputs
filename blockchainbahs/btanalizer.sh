@@ -40,26 +40,23 @@ function helpPanel() {
   tput cnorm
   exit 1
 }
-
 function list_unconfirmed_transactions() {
-  # Agregar código aquí para listar transacciones no confirmadas
-  echo "Listando transacciones no confirmadas"
-
-  echo '' > htmlblockchain.log
-
-  while [ "$(cat htmlblockchain.log | wc -l)" == "1" ]; do
+  # Verificar si el archivo htmlblockchain.log existe y no está vacío
+  if [ ! -s htmlblockchain.log ]; then
+    # Si no existe o está vacío, descargar la página web
+    echo "Descargando la página de transacciones no confirmadas..."
     curl -L "$unconfirmed_transactions" | html2text > htmlblockchain.log
-  done
+    echo "Descarga completada."
+  fi
 
-  hashes="$(cat htmlblockchain.log | grep -F "Hash" -A 1 | grep -v "\--" | sed 's/Hash_//')"
+  # Extraer y mostrar los números de hash
+  hashes="$(grep -F "Hash" -A 1 htmlblockchain.log | grep -v "\--" | sed 's/Hash_//')"
 
   echo "$hashes"
 
-  # Para filtrar hashes diferente al video cambiaron
-  # cat htmlblockchain.log | grep -F "Hash" -A 1 | grep -v "\--" | sed 's/Hash_//'
-
   tput cnorm
 }
+
 
 
 # Script principal

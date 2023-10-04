@@ -324,7 +324,44 @@ next@next-System-Product-Name:~/Escritorio/javascript-pantalla-css-ai/ejer javas
 /////////////////////////////////
 /////////////////////////////////
 
+Ejecuta del archivo si no esta vacio:
 
+next@next-System-Product-Name:~/Escritorio/javascript-pantalla-css-ai/ejer javascript por pantalla - inputs/blockchainbahs$ ./btanalizer.sh -e unconfirmed_transactions
+45b1-0818
+10/04/2023,_22:45:00
+3bba-3abd
+10/04/2023,_22:44:58
+e16a-0170
+10/04/2023,_22:44:58
+df91-1b14
+10/04/2023,_22:44:58
+99b7-3db2
+10/04/2023,_22:44:57
+dad9-3f7a
+10/04/2023,_22:44:57
+52d1-3140
+10/04/2023,_22:44:57
+9c58-ac63
+10/04/2023,_22:44:56
+fca6-0d08
+10/04/2023,_22:44:56
+0acb-87e9
+10/04/2023,_22:44:55
+4b42-d485
+10/04/2023,_22:44:55
+2111-c911
+10/04/2023,_22:44:55
+70af-ed85
+10/04/2023,_22:44:54
+ae52-a268
+10/04/2023,_22:44:54
+1bed-5e14
+10/04/2023,_22:44:53
+22aa-bea2
+10/04/2023,_22:44:52
+3718-7a1b
+10/04/2023,_22:44:51
+next@next-System-Product-Name:~/Escritorio/javascript-pantalla-css-ai/ejer javascript por pantalla - inputs/blockchainbahs$ 
 
 /////////////////////////////////
 /////////////////////////////////
