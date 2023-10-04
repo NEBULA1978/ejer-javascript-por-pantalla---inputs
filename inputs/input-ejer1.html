@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <label>Introduce el primer número:</label>
-<input type="number" id="numero1" min="1">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <label>Introduce el primer número:</label>
+    <input type="number" id="numero1" min="1">
 
-<label>Introduce el segundo número:</label>
-<input type="number" id="numero2" min="1">
+    <label>Introduce el segundo número:</label>
+    <input type="number" id="numero2" min="1">
 
-<button id="botonComprobar" onclick="compararNumeros()">Comparar números</button>
+    <button id="botonComprobar" onclick="compararNumeros()">Comparar números</button>
 
-<p id="resultado"></p>
+    <p id="resultado"></p>
 
-<script>
+    <script>
 function compararNumeros() {
   var numero1Elemento = document.getElementById('numero1');
   var numero2Elemento = document.getElementById('numero2');
@@ -48,5 +48,5 @@ function compararNumeros() {
 }
 </script>
 
-</body>
+  </body>
 </html>
