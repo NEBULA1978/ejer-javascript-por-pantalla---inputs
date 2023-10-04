@@ -27,34 +27,49 @@ function ctrl_c() {
   exit 1
 }
 
-function helpPanel(){
-	echo -e "\n${redColour}[!] Uso: ./btcAnalyzer${endColour}"
-	for i in $(seq 1 80); do echo -ne "${redColour}-"; done; echo -ne "${endColour}"
-	echo -e "\n\n\t${grayColour}[-e]${endColour}${yellowColour} Modo exploración${endColour}"
-	echo -e "\t\t${purpleColour}unconfirmed_transactions${endColour}${yellowColour}:\t Listar transacciones no confirmadas${endColour}"
-	echo -e "\t\t${purpleColour}inspect${endColour}${yellowColour}:\t\t\t Inspeccionar un hash${endColour}"
-	echo -e "\t\t${purpleColour}address${endColour}${yellowColour}:\t\t\t Inspeccionar una dirección${endColour}"
-	echo -e "\n\t${grayColour}[-h]${endColour}${yellowColour} Mostrar este panel de ayuda${endColour}\n"
+function helpPanel() {
+  echo -e "\n${redColour}[!] Uso: ./btcAnalyzer${endColour}"
+  for i in $(seq 1 80); do echo -ne "${redColour}-"; done
+  echo -ne "${endColour}"
+  echo -e "\n\n\t${grayColour}[-e]${endColour}${yellowColour} Modo exploración${endColour}"
+  echo -e "\t\t${purpleColour}unconfirmed_transactions${endColour}${yellowColour}:\t Listar transacciones no confirmadas${endColour}"
+  echo -e "\t\t${purpleColour}inspect${endColour}${yellowColour}:\t\t\t Inspeccionar un hash${endColour}"
+  echo -e "\t\t${purpleColour}address${endColour}${yellowColour}:\t\t\t Inspeccionar una dirección${endColour}"
+  echo -e "\n\t${grayColour}[-h]${endColour}${yellowColour} Mostrar este panel de ayuda${endColour}\n"
 
-	tput cnorm; exit 1
+  tput cnorm
+  exit 1
 }
 
-function unconfirmed_transactions(){
-  echo "Listing unconfirmed transactions"
+function unconfirmed_transactions() {
   # Add code here to list unconfirmed transactions
-  
-  cat htmlblokchain.log | grep -F "Hash" -A 1 | grep -v "\--"
+  echo "Listing unconfirmed transactions"
 
+  echo '' >htmlblokchain.log
 
-  tput cnorm;
+  while [ "$(cat htmlblokchain.log | wc -1)" == "1" ]; do
+  curl -L "$unconfirmed_transactions" | html2text >htmlblokchain.log
+  done
+
+  hashes="$( cat htmlblokchain.log | grep -F "Hash" -A 1 | grep -v "\--")"
+
+  echo $hashes
+
+  # Para filtradosde hases diferente al videocambiaron
+  # cat htmlblokchain.log | grep -F "Hash" -A 1 | grep -v "\--"
+
+  tput cnorm
 }
 
 # Main script
 parameter_counter=0
 while getopts "e:h:" arg; do
   case $arg in
-    e) exploration_mode="$OPTARG"; let parameter_counter+=1;;
-    h) helpPanel;;
+  e)
+    exploration_mode="$OPTARG"
+    let parameter_counter+=1
+    ;;
+  h) helpPanel ;;
   esac
 done
 
