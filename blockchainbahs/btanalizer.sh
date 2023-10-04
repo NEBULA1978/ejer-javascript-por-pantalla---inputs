@@ -18,9 +18,10 @@ unconfirmed_transactions="https://www.blockchain.com/es/btc/unconfirmed-transact
 inspect_transaction_url="https://www.blockchain.com/es/btc/tx/"
 inspect_address_url="https://www.blockchain.com/es/btc/address/"
 
+# Funciones
+
 trap ctrl_c INT
 
-# Funciones
 function ctrl_c() {
   echo -e "\n${redColour}[!] Saliendo...\n${endColour}"
   tput cnorm
@@ -45,20 +46,71 @@ function list_unconfirmed_transactions() {
   if [ ! -s htmlblockchain.log ]; then
     # Si no existe o está vacío, descargar la página web
     echo "Descargando la página de transacciones no confirmadas..."
-    curl -L "$unconfirmed_transactions" | html2text > htmlblockchain.log
+    curl -L "$unconfirmed_transactions" | html2text >htmlblockchain.log
     echo "Descarga completada."
   fi
 
   # Extraer y mostrar solo los números de hash
   hashes="$(grep -F "Hash" -A 1 htmlblockchain.log | grep -v "\--" | sed 's/Hash_//' | grep -o '[0-9a-f]\{4\}-[0-9a-f]\{4\}')"
 
-  echo "$hashes"
+  # echo "$hashes"
+  echo "Hash_Cantidad_Bitcoin_Tiempo" > ut.table
+
+	for hash in $hashes; do
+		echo "${hash}_$(cat ut.tmp | grep "$hash" -A 6 | tail -n 1)_$(cat ut.tmp | grep "$hash" -A 4 | tail -n 1)_$(cat ut.tmp | grep "$hash" -A 2 | tail -n 1)" >> ut.table
+	done
+  cat ut.table
+  sleep 100
 
   tput cnorm
 }
 
+function printTable() {
 
+  local -r delimiter="${1}"
+  local -r data="$(removeEmptyLines "${2}")"
 
+  if [[ "${delimiter}" != '' && "$(isEmptyString "${data}")" = 'false' ]]; then
+    local -r numberOfLines="$(wc -l <<<"${data}")"
+
+    if [[ "${numberOfLines}" -gt '0' ]]; then
+      local table=''
+      local i=1
+
+      for ((i = 1; i <= "${numberOfLines}"; i = i + 1)); do
+        local line=''
+        line="$(sed "${i}q;d" <<<"${data}")"
+
+        local numberOfColumns='0'
+        numberOfColumns="$(awk -F "${delimiter}" '{print NF}' <<<"${line}")"
+
+        if [[ "${i}" -eq '1' ]]; then
+          table="${table}$(printf '%s#+' "$(repeatString '#+' "${numberOfColumns}")")"
+        fi
+
+        table="${table}\n"
+
+        local j=1
+
+        for ((j = 1; j <= "${numberOfColumns}"; j = j + 1)); do
+          table="${table}$(printf '#| %s' "$(cut -d "${delimiter}" -f "${j}" <<<"${line}")")"
+        done
+
+        table="${table}#|\n"
+
+        if [[ "${i}" -eq '1' ]] || [[ "${numberOfLines}" -gt '1' && "${i}" -eq "${numberOfLines}" ]]; then
+          table="${table}$(printf '%s#+' "$(repeatString '#+' "${numberOfColumns}")")"
+        fi
+      done
+
+      if [[ "$(isEmptyString "${table}")" = 'false' ]]; then
+        echo -e "${table}" | column -s '#' -t | awk '/^\+/{gsub(" ", "-", $0)}1'
+      fi
+    fi
+  fi
+}
+
+# FIN Funciones
 
 # Script principal
 parameter_counter=0
