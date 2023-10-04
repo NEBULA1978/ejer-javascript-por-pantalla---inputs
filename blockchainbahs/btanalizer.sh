@@ -42,6 +42,10 @@ function helpPanel(){
 function unconfirmed_transactions(){
   echo "Listing unconfirmed transactions"
   # Add code here to list unconfirmed transactions
+  
+  cat htmlblokchain.log | grep -F "Hash" -A 1 | grep -v "\--"
+
+
   tput cnorm;
 }
 

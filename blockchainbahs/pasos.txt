@@ -257,12 +257,69 @@ next@next-System-Product-Name:~/Escritorio/javascript-pantalla-css-ai/ejer javas
 /////////////////////////////////
 /////////////////////////////////
 
+Eliminar la palabra hash_ falta la fecha:
 
+next@next-System-Product-Name:~/Escritorio/javascript-pantalla-css-ai/ejer javascript por pantalla - inputs/blockchainbahs$ cat htmlblokchain.log | grep -F "Hash" -A 1 | grep -v "\--" | sed 's/.*Hash_\([0-9a-fA-F-]*\)/\1/'
+6df7-eae9
+10/04/2023,_21:46:19
+96d7-f1d5
+10/04/2023,_21:46:19
+2258-5cb8
+10/04/2023,_21:46:19
+ddd4-63a6
+10/04/2023,_21:46:19
+b28d-8f62
+10/04/2023,_21:46:19
+07b7-525b
+10/04/2023,_21:46:19
+ed33-d3f9
+10/04/2023,_21:46:17
+925c-0ed2
+10/04/2023,_21:46:17
+6550-c655
+10/04/2023,_21:46:17
+6e85-b93c
+10/04/2023,_21:46:17
+d6d6-3004
+10/04/2023,_21:46:17
+160f-2cc6
+10/04/2023,_21:46:16
+b307-5196
+10/04/2023,_21:46:16
+ed87-d63c
+10/04/2023,_21:46:16
+6d13-4f07
+10/04/2023,_21:46:16
+b92f-e615
+10/04/2023,_21:46:15
+55be-2ad3
+10/04/2023,_21:46:14
+next@next-System-Product-Name:~/Escritorio/javascript-pantalla-css-ai/ejer javascript por pantalla - inputs/blockchainbahs$ 
 
 /////////////////////////////////
 /////////////////////////////////
+Minuto 33 scripting avanzado 2 savitar
+Solo veo los hashes:
 
-
+next@next-System-Product-Name:~/Escritorio/javascript-pantalla-css-ai/ejer javascript por pantalla - inputs/blockchainbahs$ cat htmlblokchain.log | grep -F "Hash" -A 1 | grep -v "\--" | sed -n 's/.*Hash_\([0-9a-fA-F-]*\)/\1/p'
+6df7-eae9
+96d7-f1d5
+2258-5cb8
+ddd4-63a6
+b28d-8f62
+07b7-525b
+ed33-d3f9
+925c-0ed2
+6550-c655
+6e85-b93c
+d6d6-3004
+160f-2cc6
+b307-5196
+ed87-d63c
+6d13-4f07
+b92f-e615
+55be-2ad3
+next@next-System-Product-Name:~/Escritorio/javascript-pantalla-css-ai/ejer javascript por pantalla - inputs/blockchainbahs$ 
 
 /////////////////////////////////
 /////////////////////////////////
