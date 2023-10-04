@@ -52,32 +52,207 @@ Han cambiado y tebgo que poner este parametro para ver
 /////////////////////////////////
 /////////////////////////////////
 
+❯ curl -L  https://www.blockchain.com/es/btc/unconfirmed-transactions | html2text -o  htmlblokchain.log | less -S
+
+/////////////////////////////////
+/////////////////////////////////
+
+Este comando leerá el contenido del archivo htmlblokchain.log y mostrará todas las líneas que contienen la palabra "Hash".
+
+❯ cat htmlblokchain.log | grep -F "Hash"
+Hash_6df7-eae9
+Hash_96d7-f1d5
+Hash_2258-5cb8
+Hash_ddd4-63a6
+Hash_b28d-8f62
+Hash_07b7-525b
+Hash_ed33-d3f9
+Hash_925c-0ed2
+Hash_6550-c655
+Hash_6e85-b93c
+Hash_d6d6-3004
+Hash_160f-2cc6
+Hash_b307-5196
+Hash_ed87-d63c
+Hash_6d13-4f07
+Hash_b92f-e615
+Hash_55be-2ad3
+
+    ~/E/j/ejer javascript por pantalla - inputs/blockchainbahs  ✔  
+
+/////////////////////////////////
+/////////////////////////////////
+
+Este comando leerá el contenido del archivo htmlblokchain.log y mostrará todas las líneas que contienen la palabra "Hash" y la linea de abajo con -A 1
+
+cat htmlblokchain.log | grep -F "Hash" -A 1
+Hash_6df7-eae9
+10/04/2023,_21:46:19
+--
+Hash_96d7-f1d5
+10/04/2023,_21:46:19
+--
+Hash_2258-5cb8
+10/04/2023,_21:46:19
+--
+Hash_ddd4-63a6
+10/04/2023,_21:46:19
+--
+Hash_b28d-8f62
+10/04/2023,_21:46:19
+--
+Hash_07b7-525b
+10/04/2023,_21:46:19
+--
+Hash_ed33-d3f9
+10/04/2023,_21:46:17
+--
+Hash_925c-0ed2
+10/04/2023,_21:46:17
+--
+Hash_6550-c655
+10/04/2023,_21:46:17
+--
+Hash_6e85-b93c
+10/04/2023,_21:46:17
+--
+Hash_d6d6-3004
+10/04/2023,_21:46:17
+--
+Hash_160f-2cc6
+10/04/2023,_21:46:16
+--
+Hash_b307-5196
+10/04/2023,_21:46:16
+--
+Hash_ed87-d63c
+10/04/2023,_21:46:16
+--
+Hash_6d13-4f07
+10/04/2023,_21:46:16
+--
+Hash_b92f-e615
+10/04/2023,_21:46:15
+--
+Hash_55be-2ad3
+10/04/2023,_21:46:14
 
 
 /////////////////////////////////
 /////////////////////////////////
 
+Este comando leerá el contenido del archivo htmlblokchain.log y mostrará todas las líneas que contienen la palabra "Hash" y la linea de abajo con -A 1 con | -v "Hash" quitamos la palabra Hash:
+
+cat htmlblokchain.log | grep -F "Hash" -A 1 | grep -v "Has
+h"
+
+10/04/2023,_21:46:19
+--
+10/04/2023,_21:46:19
+--
+10/04/2023,_21:46:19
+--
+10/04/2023,_21:46:19
+--
+10/04/2023,_21:46:19
+--
+10/04/2023,_21:46:19
+--
+10/04/2023,_21:46:17
+--
+10/04/2023,_21:46:17
+--
+10/04/2023,_21:46:17
+--
+10/04/2023,_21:46:17
+--
+10/04/2023,_21:46:17
+--
+10/04/2023,_21:46:16
+--
+10/04/2023,_21:46:16
+--
+10/04/2023,_21:46:16
+--
+10/04/2023,_21:46:16
+--
+10/04/2023,_21:46:15
+--
+10/04/2023,_21:46:14
+
+next@next-System-Product-Name:~/Escritorio/javascript-pantalla-css-ai/ejer javascript por pantalla - inputs/blockchainbahs$ 
+
+/////////////////////////////////
+/////////////////////////////////
+
+Bien pero no veo los hashes han cambiado respecto al viddeo:
+
+Este comando leerá el contenido del archivo htmlblokchain.log y mostrará todas las líneas que contienen la palabra "Hash" y la linea de abajo con -A 1 con | -v "Hash" quitamos la palabra Hash y quito los guiones:
+
+cat htmlblokchain.log | grep -F "Hash" -A 1 | grep -v -E "Has
+h|\--"
+
+10/04/2023,_21:46:19
+10/04/2023,_21:46:19
+10/04/2023,_21:46:19
+10/04/2023,_21:46:19
+10/04/2023,_21:46:19
+10/04/2023,_21:46:19
+10/04/2023,_21:46:17
+10/04/2023,_21:46:17
+10/04/2023,_21:46:17
+10/04/2023,_21:46:17
+10/04/2023,_21:46:17
+10/04/2023,_21:46:16
+10/04/2023,_21:46:16
+10/04/2023,_21:46:16
+10/04/2023,_21:46:16
+10/04/2023,_21:46:15
+10/04/2023,_21:46:14
 
 
 /////////////////////////////////
 /////////////////////////////////
 
+Nueva dorma para ver los hashes  esta diferente al video:
 
-
-/////////////////////////////////
-/////////////////////////////////
-
-
-
-/////////////////////////////////
-/////////////////////////////////
-
-
-
-/////////////////////////////////
-/////////////////////////////////
-
-
+ cat htmlblokchain.log | grep -F "Hash" -A 1 | grep -v "\--
+"
+Hash_6df7-eae9
+10/04/2023,_21:46:19
+Hash_96d7-f1d5
+10/04/2023,_21:46:19
+Hash_2258-5cb8
+10/04/2023,_21:46:19
+Hash_ddd4-63a6
+10/04/2023,_21:46:19
+Hash_b28d-8f62
+10/04/2023,_21:46:19
+Hash_07b7-525b
+10/04/2023,_21:46:19
+Hash_ed33-d3f9
+10/04/2023,_21:46:17
+Hash_925c-0ed2
+10/04/2023,_21:46:17
+Hash_6550-c655
+10/04/2023,_21:46:17
+Hash_6e85-b93c
+10/04/2023,_21:46:17
+Hash_d6d6-3004
+10/04/2023,_21:46:17
+Hash_160f-2cc6
+10/04/2023,_21:46:16
+Hash_b307-5196
+10/04/2023,_21:46:16
+Hash_ed87-d63c
+10/04/2023,_21:46:16
+Hash_6d13-4f07
+10/04/2023,_21:46:16
+Hash_b92f-e615
+10/04/2023,_21:46:15
+Hash_55be-2ad3
+10/04/2023,_21:46:14
+next@next-System-Product-Name:~/Escritorio/javascript-pantalla-css-ai/ejer javascript por pantalla - inputs/blockchainbahs$ 
 
 /////////////////////////////////
 /////////////////////////////////
