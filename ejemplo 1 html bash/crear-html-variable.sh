@@ -1,4 +1,14 @@
+#!/bin/bash
 
+# Solicitar nombres de variables al usuario
+read -p "Introduce el nombre de la primera variable (por ejemplo, var1): " variable1
+read -p "Introduce el nombre de la segunda variable (por ejemplo, var2): " variable2
+
+# Nombre del archivo de salida
+output_file="comparar_numeros.html"
+
+# Contenido del archivo HTML
+html_content='
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,10 +18,10 @@
   </head>
   <body>
     <label>Introduce el primer número:</label>
-    <input type="number" id="var1" min="1">
+    <input type="number" id="'$variable1'" min="1">
 
     <label>Introduce el segundo número:</label>
-    <input type="number" id="var2" min="1">
+    <input type="number" id="'$variable2'" min="1">
 
     <button id="botonComprobar" onclick="compararNumeros()">Comparar números</button>
 
@@ -19,10 +29,10 @@
 
     <script>
       function compararNumeros() {
-        var var1 = document.getElementById("var1");
-        var var2 = document.getElementById("var2");
-        var numero1 = parseInt(var1.value);
-        var numero2 = parseInt(var2.value);
+        var '$variable1' = document.getElementById("'$variable1'");
+        var '$variable2' = document.getElementById("'$variable2'");
+        var numero1 = parseInt('$variable1'.value);
+        var numero2 = parseInt('$variable2'.value);
         var resultadoElemento = document.getElementById("resultado");
 
         // Validar que los números son válidos
@@ -42,13 +52,18 @@
         }
 
         // Borrar los valores de los inputs
-        var1.value = "";
-        var2.value = "";
+        '$variable1'.value = "";
+        '$variable2'.value = "";
 
         // Enfocar en el primer input
-        var1.focus();
+        '$variable1'.focus();
       }
     </script>
   </body>
 </html>
+'
 
+# Crear el archivo HTML
+echo "$html_content" > "$output_file"
+
+echo "Se ha creado el archivo $output_file con éxito."
