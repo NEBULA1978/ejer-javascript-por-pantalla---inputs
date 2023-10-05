@@ -1,15 +1,16 @@
 #!/bin/bash
 
 # Solicitar nombres de variables al usuario
-read -r -p "Introduce el nombre de la primera variable (por ejemplo, var1): " variable1
 read -r -p "Introduce el nombre de la segunda variable (por ejemplo, var2): " variable2
+read -r -p "Introduce el nombre de la primera variable (por ejemplo, var1): " variable1
 read -r -p "Introduce el nombre de getElementById (por ejemplo, getElementById): " getElementById
-
+read -r -p "Introduce el nombre de la variable para el resultado (por ejemplo, resultadoElemento): " resultadoVariable
+read -r -p "Introduce el nombre de la variable para el resultado parseado (por ejemplo, resultadoParseado): " resultadoParseadoVariable
 
 # Nombre del archivo de salida
 output_file="comparar_numeros.html"
 
-# Contenido del archivo HTML
+# Contenido del archivo HTML con los nombres de variables
 html_content='
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +28,7 @@ html_content='
 
     <button id="botonComprobar" onclick="compararNumeros()">Comparar números</button>
 
-    <p id="resultado"></p>
+    <p id="'$resultadoVariable'"></p>
 
     <script>
     
@@ -36,21 +37,21 @@ html_content='
         var '$variable2' = document.'$getElementById'("'$variable2'");
         var numero1 = parseInt('$variable1'.value);
         var numero2 = parseInt('$variable2'.value);
-        var resultadoElemento = document.'$getElementById'("resultado");
+        var '$resultadoParseadoVariable' = parseInt('$resultadoVariable'.textContent);
 
         // Validar que los números son válidos
         if (isNaN(numero1) || isNaN(numero2) || numero1 <= 0 || numero2 <= 0) {
-          resultadoElemento.textContent = "Introduce números válidos";
+          '$resultadoVariable'.textContent = "Introduce números válidos";
           return;
         }
 
         if (numero1 == numero2) {
-          resultadoElemento.textContent = "LOS NUMEROS SON IGUALES";
+          '$resultadoVariable'.textContent = "LOS NUMEROS SON IGUALES";
         } else if (numero1 > numero2) {
-          resultadoElemento.textContent =
+          '$resultadoVariable'.textContent =
             "EL NUMERO MAYOR ES: " + numero1 + " EL NUMERO MENOR ES: " + numero2;
         } else {
-          resultadoElemento.textContent =
+          '$resultadoVariable'.textContent =
             "EL NUMERO MAYOR ES: " + numero2 + " EL NUMERO MENOR ES: " + numero1;
         }
 
