@@ -1,0 +1,32 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header,
+nav,
+section,
+article,
+footer {
+    border: 1px solid gray;
+    margin: 5px;
+    padding: 8px;
+}
+
+.border-grey {
+    border: 1px solid gray;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+h1,
+h2,
+h3 {
+    margin-left: 5px;
+}
