@@ -1,0 +1,13 @@
+Ctrl + F
+para abrir el cuadro de búsqueda en la parte superior derecha del editor.
+
+Ingresa la palabra que deseas buscar en el cuadro de búsqueda.
+
+Haz clic en el icono de tres puntos (...) en la parte derecha del cuadro de búsqueda para expandir las opciones de búsqueda.
+
+Selecciona la opción "Reemplazar" o presiona Ctrl + H (en Windows/Linux) 
+
+para abrir el cuadro de búsqueda y reemplazo.
+
+Ingresa la palabra con la que deseas reemplazar la palabra que buscaste en el paso 3 en el cuadro "Reemplazar con".
+

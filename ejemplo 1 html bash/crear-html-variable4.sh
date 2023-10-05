@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # Solicitar nombres de variables al usuario
-read -p "Introduce el nombre de la primera variable (por ejemplo, var1): " variable1
-read -p "Introduce el nombre de la segunda variable (por ejemplo, var2): " variable2
+read -r -p "Introduce el nombre de la segunda variable (por ejemplo, var2): " variable2
+read -r -p "Introduce el nombre de la primera variable (por ejemplo, var1): " variable1
+read -r -p "Introduce el nombre de getElementById (por ejemplo, getElementById): " getElementById
+
 
 # Nombre del archivo de salida
 output_file="comparar_numeros.html"
@@ -30,11 +32,11 @@ html_content='
     <script>
     
       function compararNumeros() {
-        var '$variable1' = document.getElementById("'$variable1'");
-        var '$variable2' = document.getElementById("'$variable2'");
+        var '$variable1' = document.'$getElementById'("'$variable1'");
+        var '$variable2' = document.'$getElementById'("'$variable2'");
         var numero1 = parseInt('$variable1'.value);
         var numero2 = parseInt('$variable2'.value);
-        var resultadoElemento = document.getElementById("resultado");
+        var resultadoElemento = document.'$getElementById'("resultado");
 
         // Validar que los números son válidos
         if (isNaN(numero1) || isNaN(numero2) || numero1 <= 0 || numero2 <= 0) {
