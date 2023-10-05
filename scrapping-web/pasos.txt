@@ -1,0 +1,501 @@
+//////////////////////////////////////////
+//////////////////////////////////////////
+
+Para bucar con grep por href="/entry/:
+
+cat log.log | grep 'href="/entry/'
+❯ ./scraping2.sh
+Estas son las maquinas disponibles: 
+<a href="/entry/matrix-breakout-2-morpheus,757/">
+<a href="/entry/matrix-breakout-2-morpheus,757/">
+<a href="/entry/matrix-breakout-2-morpheus,757/">
+<a href="/entry/matrix-breakout-2-morpheus,757/">
+<a href="/entry/matrix-breakout-2-morpheus,757/" class="card-option-link"> Details</a>
+<a href="/entry/matrix-breakout-2-morpheus,757/#download" class="card-option-link">Download</a>
+<a href="/entry/web-machine-n7,756/">
+<a href="/entry/web-machine-n7,756/">
+<a href="/entry/web-machine-n7,756/">
+<a href="/entry/web-machine-n7,756/">
+<a href="/entry/web-machine-n7,756/" class="card-option-link"> Details</a>
+<a href="/entry/web-machine-n7,756/#download" class="card-option-link">Download</a>
+<a href="/entry/the-planets-earth,755/">
+<a href="/entry/the-planets-earth,755/">
+<a href="/entry/the-planets-earth,755/">
+<a href="/entry/the-planets-earth,755/">
+<a href="/entry/the-planets-earth,755/" class="card-option-link"> Details</a>
+<a href="/entry/the-planets-earth,755/#download" class="card-option-link">Download</a>
+<a href="/entry/jangow-101,754/">
+<a href="/entry/jangow-101,754/">
+<a href="/entry/jangow-101,754/">
+<a href="/entry/jangow-101,754/">
+<a href="/entry/jangow-101,754/" class="card-option-link"> Details</a>
+<a href="/entry/jangow-101,754/#download" class="card-option-link">Download</a>
+<a href="/entry/red-1,753/">
+<a href="/entry/red-1,753/">
+<a href="/entry/red-1,753/">
+<a href="/entry/red-1,753/">
+<a href="/entry/red-1,753/" class="card-option-link"> Details</a>
+<a href="/entry/red-1,753/#download" class="card-option-link">Download</a>
+<a href="/entry/napping-101,752/">
+<a href="/entry/napping-101,752/">
+<a href="/entry/napping-101,752/">
+<a href="/entry/napping-101,752/">
+<a href="/entry/napping-101,752/" class="card-option-link"> Details</a>
+<a href="/entry/napping-101,752/#download" class="card-option-link">Download</a>
+<a href="/entry/empire-breakout,751/">
+<a href="/entry/empire-breakout,751/">
+<a href="/entry/empire-breakout,751/">
+<a href="/entry/empire-breakout,751/">
+<a href="/entry/empire-breakout,751/" class="card-option-link"> Details</a>
+<a href="/entry/empire-breakout,751/#download" class="card-option-link">Download</a>
+<a href="/entry/empire-lupinone,750/">
+<a href="/entry/empire-lupinone,750/">
+<a href="/entry/empire-lupinone,750/">
+<a href="/entry/empire-lupinone,750/">
+<a href="/entry/empire-lupinone,750/" class="card-option-link"> Details</a>
+<a href="/entry/empire-lupinone,750/#download" class="card-option-link">Download</a>
+<a href="/entry/thales-1,749/">
+<a href="/entry/thales-1,749/">
+<a href="/entry/thales-1,749/">
+<a href="/entry/thales-1,749/">
+<a href="/entry/thales-1,749/" class="card-option-link"> Details</a>
+<a href="/entry/thales-1,749/#download" class="card-option-link">Download</a>
+<a href="/entry/ica-1,748/">
+<a href="/entry/ica-1,748/">
+<a href="/entry/ica-1,748/">
+<a href="/entry/ica-1,748/">
+<a href="/entry/ica-1,748/" class="card-option-link"> Details</a>
+<a href="/entry/ica-1,748/#download" class="card-option-link">Download</a>
+<a href="/entry/digitalworldlocal-electrical,747/">
+<a href="/entry/digitalworldlocal-electrical,747/">
+<a href="/entry/digitalworldlocal-electrical,747/">
+<a href="/entry/digitalworldlocal-electrical,747/">
+<a href="/entry/digitalworldlocal-electrical,747/" class="card-option-link"> Details</a>
+<a href="/entry/digitalworldlocal-electrical,747/#download" class="card-option-link">Download</a>
+<a href="/entry/noob-1,746/">
+<a href="/entry/noob-1,746/">
+<a href="/entry/noob-1,746/">
+<a href="/entry/noob-1,746/">
+<a href="/entry/noob-1,746/" class="card-option-link"> Details</a>
+<a href="/entry/noob-1,746/#download" class="card-option-link">Download</a>
+
+    ~/E/j/ejer javascript por pantalla - inputs/scrapping-web  ✔  took  5s  
+
+//////////////////////////////////////////
+
+              Busco      ""           Elimino con tr los #
+cat log.log | grep 'href="/entry/' | tr -d '#'
+
+❯ ./scraping2.sh
+Estas son las maquinas disponibles: 
+<a href="/entry/matrix-breakout-2-morpheus,757/">
+<a href="/entry/matrix-breakout-2-morpheus,757/">
+<a href="/entry/matrix-breakout-2-morpheus,757/">
+<a href="/entry/matrix-breakout-2-morpheus,757/">
+<a href="/entry/matrix-breakout-2-morpheus,757/" class="card-option-link"> Details</a>
+<a href="/entry/matrix-breakout-2-morpheus,757/download" class="card-option-link">Download</a>
+<a href="/entry/web-machine-n7,756/">
+<a href="/entry/web-machine-n7,756/">
+<a href="/entry/web-machine-n7,756/">
+<a href="/entry/web-machine-n7,756/">
+<a href="/entry/web-machine-n7,756/" class="card-option-link"> Details</a>
+<a href="/entry/web-machine-n7,756/download" class="card-option-link">Download</a>
+<a href="/entry/the-planets-earth,755/">
+<a href="/entry/the-planets-earth,755/">
+<a href="/entry/the-planets-earth,755/">
+<a href="/entry/the-planets-earth,755/">
+<a href="/entry/the-planets-earth,755/" class="card-option-link"> Details</a>
+<a href="/entry/the-planets-earth,755/download" class="card-option-link">Download</a>
+<a href="/entry/jangow-101,754/">
+<a href="/entry/jangow-101,754/">
+<a href="/entry/jangow-101,754/">
+<a href="/entry/jangow-101,754/">
+<a href="/entry/jangow-101,754/" class="card-option-link"> Details</a>
+<a href="/entry/jangow-101,754/download" class="card-option-link">Download</a>
+<a href="/entry/red-1,753/">
+<a href="/entry/red-1,753/">
+<a href="/entry/red-1,753/">
+<a href="/entry/red-1,753/">
+<a href="/entry/red-1,753/" class="card-option-link"> Details</a>
+<a href="/entry/red-1,753/download" class="card-option-link">Download</a>
+<a href="/entry/napping-101,752/">
+<a href="/entry/napping-101,752/">
+<a href="/entry/napping-101,752/">
+<a href="/entry/napping-101,752/">
+<a href="/entry/napping-101,752/" class="card-option-link"> Details</a>
+<a href="/entry/napping-101,752/download" class="card-option-link">Download</a>
+<a href="/entry/empire-breakout,751/">
+<a href="/entry/empire-breakout,751/">
+<a href="/entry/empire-breakout,751/">
+<a href="/entry/empire-breakout,751/">
+<a href="/entry/empire-breakout,751/" class="card-option-link"> Details</a>
+<a href="/entry/empire-breakout,751/download" class="card-option-link">Download</a>
+<a href="/entry/empire-lupinone,750/">
+<a href="/entry/empire-lupinone,750/">
+<a href="/entry/empire-lupinone,750/">
+<a href="/entry/empire-lupinone,750/">
+<a href="/entry/empire-lupinone,750/" class="card-option-link"> Details</a>
+<a href="/entry/empire-lupinone,750/download" class="card-option-link">Download</a>
+<a href="/entry/thales-1,749/">
+<a href="/entry/thales-1,749/">
+<a href="/entry/thales-1,749/">
+<a href="/entry/thales-1,749/">
+<a href="/entry/thales-1,749/" class="card-option-link"> Details</a>
+<a href="/entry/thales-1,749/download" class="card-option-link">Download</a>
+<a href="/entry/ica-1,748/">
+<a href="/entry/ica-1,748/">
+<a href="/entry/ica-1,748/">
+<a href="/entry/ica-1,748/">
+<a href="/entry/ica-1,748/" class="card-option-link"> Details</a>
+<a href="/entry/ica-1,748/download" class="card-option-link">Download</a>
+<a href="/entry/digitalworldlocal-electrical,747/">
+<a href="/entry/digitalworldlocal-electrical,747/">
+<a href="/entry/digitalworldlocal-electrical,747/">
+<a href="/entry/digitalworldlocal-electrical,747/">
+<a href="/entry/digitalworldlocal-electrical,747/" class="card-option-link"> Details</a>
+<a href="/entry/digitalworldlocal-electrical,747/download" class="card-option-link">Download</a>
+<a href="/entry/noob-1,746/">
+<a href="/entry/noob-1,746/">
+<a href="/entry/noob-1,746/">
+<a href="/entry/noob-1,746/">
+<a href="/entry/noob-1,746/" class="card-option-link"> Details</a>
+<a href="/entry/noob-1,746/download" class="card-option-link">Download</a>
+
+    ~/E/j/ejer javascript por pantalla - inputs/scrapping-web  ✔  took  5s  
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+              Busco      ""          Elimino con tr los #   Sustituyo entry por spacion blanco
+cat log.log | grep 'href="/entry/' |       tr -d '#'      | sed 's/entry/ /' 
+
+
+❯ cat log.log | grep 'href="/entry/' | tr -d '#' | sed 's/entry/ /'
+<a href="/ /matrix-breakout-2-morpheus,757/">
+<a href="/ /matrix-breakout-2-morpheus,757/">
+<a href="/ /matrix-breakout-2-morpheus,757/">
+<a href="/ /matrix-breakout-2-morpheus,757/">
+<a href="/ /matrix-breakout-2-morpheus,757/" class="card-option-link"> Details</a>
+<a href="/ /matrix-breakout-2-morpheus,757/download" class="card-option-link">Download</a>
+<a href="/ /web-machine-n7,756/">
+<a href="/ /web-machine-n7,756/">
+<a href="/ /web-machine-n7,756/">
+<a href="/ /web-machine-n7,756/">
+<a href="/ /web-machine-n7,756/" class="card-option-link"> Details</a>
+<a href="/ /web-machine-n7,756/download" class="card-option-link">Download</a>
+<a href="/ /the-planets-earth,755/">
+<a href="/ /the-planets-earth,755/">
+<a href="/ /the-planets-earth,755/">
+<a href="/ /the-planets-earth,755/">
+<a href="/ /the-planets-earth,755/" class="card-option-link"> Details</a>
+<a href="/ /the-planets-earth,755/download" class="card-option-link">Download</a>
+<a href="/ /jangow-101,754/">
+<a href="/ /jangow-101,754/">
+<a href="/ /jangow-101,754/">
+<a href="/ /jangow-101,754/">
+<a href="/ /jangow-101,754/" class="card-option-link"> Details</a>
+<a href="/ /jangow-101,754/download" class="card-option-link">Download</a>
+<a href="/ /red-1,753/">
+<a href="/ /red-1,753/">
+<a href="/ /red-1,753/">
+<a href="/ /red-1,753/">
+<a href="/ /red-1,753/" class="card-option-link"> Details</a>
+<a href="/ /red-1,753/download" class="card-option-link">Download</a>
+<a href="/ /napping-101,752/">
+<a href="/ /napping-101,752/">
+<a href="/ /napping-101,752/">
+<a href="/ /napping-101,752/">
+<a href="/ /napping-101,752/" class="card-option-link"> Details</a>
+<a href="/ /napping-101,752/download" class="card-option-link">Download</a>
+<a href="/ /empire-breakout,751/">
+<a href="/ /empire-breakout,751/">
+<a href="/ /empire-breakout,751/">
+<a href="/ /empire-breakout,751/">
+<a href="/ /empire-breakout,751/" class="card-option-link"> Details</a>
+<a href="/ /empire-breakout,751/download" class="card-option-link">Download</a>
+<a href="/ /empire-lupinone,750/">
+<a href="/ /empire-lupinone,750/">
+<a href="/ /empire-lupinone,750/">
+<a href="/ /empire-lupinone,750/">
+<a href="/ /empire-lupinone,750/" class="card-option-link"> Details</a>
+<a href="/ /empire-lupinone,750/download" class="card-option-link">Download</a>
+<a href="/ /thales-1,749/">
+<a href="/ /thales-1,749/">
+<a href="/ /thales-1,749/">
+<a href="/ /thales-1,749/">
+<a href="/ /thales-1,749/" class="card-option-link"> Details</a>
+<a href="/ /thales-1,749/download" class="card-option-link">Download</a>
+<a href="/ /ica-1,748/">
+<a href="/ /ica-1,748/">
+<a href="/ /ica-1,748/">
+<a href="/ /ica-1,748/">
+<a href="/ /ica-1,748/" class="card-option-link"> Details</a>
+<a href="/ /ica-1,748/download" class="card-option-link">Download</a>
+<a href="/ /digitalworldlocal-electrical,747/">
+<a href="/ /digitalworldlocal-electrical,747/">
+<a href="/ /digitalworldlocal-electrical,747/">
+<a href="/ /digitalworldlocal-electrical,747/">
+<a href="/ /digitalworldlocal-electrical,747/" class="card-option-link"> Details</a>
+<a href="/ /digitalworldlocal-electrical,747/download" class="card-option-link">Download</a>
+<a href="/ /noob-1,746/">
+<a href="/ /noob-1,746/">
+<a href="/ /noob-1,746/">
+<a href="/ /noob-1,746/">
+<a href="/ /noob-1,746/" class="card-option-link"> Details</a>
+<a href="/ /noob-1,746/download" class="card-option-link">Download</a>
+
+    ~/E/j/ejer javascript por pantalla - inputs/scrapping-web  ✔  
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+
+con awk le decimos nos muestre la columna 3:
+
+❯ cat log.log | grep 'href="/entry/' | tr -d '#' | sed 's/entry/ /' | awk '{print $3}'
+/matrix-breakout-2-morpheus,757/">
+/matrix-breakout-2-morpheus,757/">
+/matrix-breakout-2-morpheus,757/">
+/matrix-breakout-2-morpheus,757/">
+/matrix-breakout-2-morpheus,757/"
+/matrix-breakout-2-morpheus,757/download"
+/web-machine-n7,756/">
+/web-machine-n7,756/">
+/web-machine-n7,756/">
+/web-machine-n7,756/">
+/web-machine-n7,756/"
+/web-machine-n7,756/download"
+/the-planets-earth,755/">
+/the-planets-earth,755/">
+/the-planets-earth,755/">
+/the-planets-earth,755/">
+/the-planets-earth,755/"
+/the-planets-earth,755/download"
+/jangow-101,754/">
+/jangow-101,754/">
+/jangow-101,754/">
+/jangow-101,754/">
+/jangow-101,754/"
+/jangow-101,754/download"
+/red-1,753/">
+/red-1,753/">
+/red-1,753/">
+/red-1,753/">
+/red-1,753/"
+/red-1,753/download"
+/napping-101,752/">
+/napping-101,752/">
+/napping-101,752/">
+/napping-101,752/">
+/napping-101,752/"
+/napping-101,752/download"
+/empire-breakout,751/">
+/empire-breakout,751/">
+/empire-breakout,751/">
+/empire-breakout,751/">
+/empire-breakout,751/"
+/empire-breakout,751/download"
+/empire-lupinone,750/">
+/empire-lupinone,750/">
+/empire-lupinone,750/">
+/empire-lupinone,750/">
+/empire-lupinone,750/"
+/empire-lupinone,750/download"
+/thales-1,749/">
+/thales-1,749/">
+/thales-1,749/">
+/thales-1,749/">
+/thales-1,749/"
+/thales-1,749/download"
+/ica-1,748/">
+/ica-1,748/">
+/ica-1,748/">
+/ica-1,748/">
+/ica-1,748/"
+/ica-1,748/download"
+/digitalworldlocal-electrical,747/">
+/digitalworldlocal-electrical,747/">
+/digitalworldlocal-electrical,747/">
+/digitalworldlocal-electrical,747/">
+/digitalworldlocal-electrical,747/"
+/digitalworldlocal-electrical,747/download"
+/noob-1,746/">
+/noob-1,746/">
+/noob-1,746/">
+/noob-1,746/">
+/noob-1,746/"
+/noob-1,746/download"
+
+    ~/E/j/ejer javascript por pantalla - inputs/scrapping-web  ✔  
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+
+Con tr quitamos la / delante de nombres de maquinas:
+
+❯ cat log.log | grep 'href="/entry/' | tr -d '#' | sed 's/entry/ /' | awk '{print $3}' | tr -d '/'
+matrix-breakout-2-morpheus,757">
+matrix-breakout-2-morpheus,757">
+matrix-breakout-2-morpheus,757">
+matrix-breakout-2-morpheus,757">
+matrix-breakout-2-morpheus,757"
+matrix-breakout-2-morpheus,757download"
+web-machine-n7,756">
+web-machine-n7,756">
+web-machine-n7,756">
+web-machine-n7,756">
+web-machine-n7,756"
+web-machine-n7,756download"
+the-planets-earth,755">
+the-planets-earth,755">
+the-planets-earth,755">
+the-planets-earth,755">
+the-planets-earth,755"
+the-planets-earth,755download"
+jangow-101,754">
+jangow-101,754">
+jangow-101,754">
+jangow-101,754">
+jangow-101,754"
+jangow-101,754download"
+red-1,753">
+red-1,753">
+red-1,753">
+red-1,753">
+red-1,753"
+red-1,753download"
+napping-101,752">
+napping-101,752">
+napping-101,752">
+napping-101,752">
+napping-101,752"
+napping-101,752download"
+empire-breakout,751">
+empire-breakout,751">
+empire-breakout,751">
+empire-breakout,751">
+empire-breakout,751"
+empire-breakout,751download"
+empire-lupinone,750">
+empire-lupinone,750">
+empire-lupinone,750">
+empire-lupinone,750">
+empire-lupinone,750"
+empire-lupinone,750download"
+thales-1,749">
+thales-1,749">
+thales-1,749">
+thales-1,749">
+thales-1,749"
+thales-1,749download"
+ica-1,748">
+ica-1,748">
+ica-1,748">
+ica-1,748">
+ica-1,748"
+ica-1,748download"
+digitalworldlocal-electrical,747">
+digitalworldlocal-electrical,747">
+digitalworldlocal-electrical,747">
+digitalworldlocal-electrical,747">
+digitalworldlocal-electrical,747"
+digitalworldlocal-electrical,747download"
+noob-1,746">
+noob-1,746">
+noob-1,746">
+noob-1,746">
+noob-1,746"
+noob-1,746download"
+
+    ~/E/j/ejer javascript por pantalla - inputs/scrapping-web  ✔  
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+
+Quitamos con sed la aplabra dowload: sed 's/dowload/ /'
+
+tr -d '#' | sed 's/entry/ /' | awk '{print $3}' | tr -d '/' | sed 's/dowload/ /'
+matrix-breakout-2-morpheus,757">
+matrix-breakout-2-morpheus,757">
+matrix-breakout-2-morpheus,757">
+matrix-breakout-2-morpheus,757">
+matrix-breakout-2-morpheus,757"
+matrix-breakout-2-morpheus,757download"
+web-machine-n7,756">
+web-machine-n7,756">
+web-machine-n7,756">
+web-machine-n7,756">
+web-machine-n7,756"
+web-machine-n7,756download"
+the-planets-earth,755">
+the-planets-earth,755">
+the-planets-earth,755">
+the-planets-earth,755">
+the-planets-earth,755"
+the-planets-earth,755download"
+jangow-101,754">
+jangow-101,754">
+jangow-101,754">
+jangow-101,754">
+jangow-101,754"
+jangow-101,754download"
+red-1,753">
+red-1,753">
+red-1,753">
+red-1,753">
+red-1,753"
+red-1,753download"
+napping-101,752">
+napping-101,752">
+napping-101,752">
+napping-101,752">
+napping-101,752"
+napping-101,752download"
+empire-breakout,751">
+empire-breakout,751">
+empire-breakout,751">
+empire-breakout,751">
+empire-breakout,751"
+empire-breakout,751download"
+empire-lupinone,750">
+empire-lupinone,750">
+empire-lupinone,750">
+empire-lupinone,750">
+empire-lupinone,750"
+empire-lupinone,750download"
+thales-1,749">
+thales-1,749">
+thales-1,749">
+thales-1,749">
+thales-1,749"
+thales-1,749download"
+ica-1,748">
+ica-1,748">
+ica-1,748">
+ica-1,748">
+ica-1,748"
+ica-1,748download"
+digitalworldlocal-electrical,747">
+digitalworldlocal-electrical,747">
+digitalworldlocal-electrical,747">
+digitalworldlocal-electrical,747">
+digitalworldlocal-electrical,747"
+digitalworldlocal-electrical,747download"
+noob-1,746">
+noob-1,746">
+noob-1,746">
+noob-1,746">
+noob-1,746"
+noob-1,746download"
+
+    ~/E/j/ejer javascript por pantalla - inputs/scrapping-web  ✔  
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+
+
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+
+
+
+//////////////////////////////////////////
