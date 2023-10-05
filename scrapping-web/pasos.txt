@@ -491,6 +491,276 @@ noob-1,746download"
 //////////////////////////////////////////
 //////////////////////////////////////////
 
+Quitamos las comilla con sed por un espacio en blanco: | sed 's/"/ /'
+
+❯ cat log.log | grep 'href="/entry/' | tr -d '#' | sed 's/entry/ /' | awk '{print $3}' | tr -d '/' | sed 's/dowload/ /' | sed 's/"/ /'
+matrix-breakout-2-morpheus,757 >
+matrix-breakout-2-morpheus,757 >
+matrix-breakout-2-morpheus,757 >
+matrix-breakout-2-morpheus,757 >
+matrix-breakout-2-morpheus,757 
+matrix-breakout-2-morpheus,757download 
+web-machine-n7,756 >
+web-machine-n7,756 >
+web-machine-n7,756 >
+web-machine-n7,756 >
+web-machine-n7,756 
+web-machine-n7,756download 
+the-planets-earth,755 >
+the-planets-earth,755 >
+the-planets-earth,755 >
+the-planets-earth,755 >
+the-planets-earth,755 
+the-planets-earth,755download 
+jangow-101,754 >
+jangow-101,754 >
+jangow-101,754 >
+jangow-101,754 >
+jangow-101,754 
+jangow-101,754download 
+red-1,753 >
+red-1,753 >
+red-1,753 >
+red-1,753 >
+red-1,753 
+red-1,753download 
+napping-101,752 >
+napping-101,752 >
+napping-101,752 >
+napping-101,752 >
+napping-101,752 
+napping-101,752download 
+empire-breakout,751 >
+empire-breakout,751 >
+empire-breakout,751 >
+empire-breakout,751 >
+empire-breakout,751 
+empire-breakout,751download 
+empire-lupinone,750 >
+empire-lupinone,750 >
+empire-lupinone,750 >
+empire-lupinone,750 >
+empire-lupinone,750 
+empire-lupinone,750download 
+thales-1,749 >
+thales-1,749 >
+thales-1,749 >
+thales-1,749 >
+thales-1,749 
+thales-1,749download 
+ica-1,748 >
+ica-1,748 >
+ica-1,748 >
+ica-1,748 >
+ica-1,748 
+ica-1,748download 
+digitalworldlocal-electrical,747 >
+digitalworldlocal-electrical,747 >
+digitalworldlocal-electrical,747 >
+digitalworldlocal-electrical,747 >
+digitalworldlocal-electrical,747 
+digitalworldlocal-electrical,747download 
+noob-1,746 >
+noob-1,746 >
+noob-1,746 >
+noob-1,746 >
+noob-1,746 
+noob-1,746download 
+
+    ~/E/j/ejer javascript por pantalla - inputs/scrapping-web  ✔  
+
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+
+Quitamos con tr el simbolo > | tr -d '>'
+
+❯ cat log.log | grep 'href="/entry/' | tr -d '#' | sed 's/entry/ /' | awk '{print $3}' | tr -d '/' | sed 's/dowload/ /' | sed 's/"/ /' | tr -d '>'
+matrix-breakout-2-morpheus,757 
+matrix-breakout-2-morpheus,757 
+matrix-breakout-2-morpheus,757 
+matrix-breakout-2-morpheus,757 
+matrix-breakout-2-morpheus,757 
+matrix-breakout-2-morpheus,757download 
+web-machine-n7,756 
+web-machine-n7,756 
+web-machine-n7,756 
+web-machine-n7,756 
+web-machine-n7,756 
+web-machine-n7,756download 
+the-planets-earth,755 
+the-planets-earth,755 
+the-planets-earth,755 
+the-planets-earth,755 
+the-planets-earth,755 
+the-planets-earth,755download 
+jangow-101,754 
+jangow-101,754 
+jangow-101,754 
+jangow-101,754 
+jangow-101,754 
+jangow-101,754download 
+red-1,753 
+red-1,753 
+red-1,753 
+red-1,753 
+red-1,753 
+red-1,753download 
+napping-101,752 
+napping-101,752 
+napping-101,752 
+napping-101,752 
+napping-101,752 
+napping-101,752download 
+empire-breakout,751 
+empire-breakout,751 
+empire-breakout,751 
+empire-breakout,751 
+empire-breakout,751 
+empire-breakout,751download 
+empire-lupinone,750 
+empire-lupinone,750 
+empire-lupinone,750 
+empire-lupinone,750 
+empire-lupinone,750 
+empire-lupinone,750download 
+thales-1,749 
+thales-1,749 
+thales-1,749 
+thales-1,749 
+thales-1,749 
+thales-1,749download 
+ica-1,748 
+ica-1,748 
+ica-1,748 
+ica-1,748 
+ica-1,748 
+ica-1,748download 
+digitalworldlocal-electrical,747 
+digitalworldlocal-electrical,747 
+digitalworldlocal-electrical,747 
+digitalworldlocal-electrical,747 
+digitalworldlocal-electrical,747 
+digitalworldlocal-electrical,747download 
+noob-1,746 
+noob-1,746 
+noob-1,746 
+noob-1,746 
+noob-1,746 
+noob-1,746download 
+
+    ~/E/j/ejer javascript por pantalla - inputs/scrapping-web  ✔  
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+
+Elimino las que se repitan 
+
+ cat log.log | grep 'href="/entry/' | tr -d '#' | sed 's/entry/ /' | awk '{print $3}' | tr -d '/' | sed 's/dowload/ /' | sed 's/"/ /' | tr -d '>' | tr -d ' ' | uniq
+
+matrix-breakout-2-morpheus,757 
+matrix-breakout-2-morpheus,757 
+matrix-breakout-2-morpheus,757 
+matrix-breakout-2-morpheus,757 
+matrix-breakout-2-morpheus,757 
+matrix-breakout-2-morpheus,757download 
+web-machine-n7,756 
+web-machine-n7,756 
+web-machine-n7,756 
+web-machine-n7,756 
+web-machine-n7,756 
+web-machine-n7,756download 
+the-planets-earth,755 
+the-planets-earth,755 
+the-planets-earth,755 
+the-planets-earth,755 
+the-planets-earth,755 
+the-planets-earth,755download 
+jangow-101,754 
+jangow-101,754 
+jangow-101,754 
+jangow-101,754 
+jangow-101,754 
+jangow-101,754download 
+red-1,753 
+red-1,753 
+red-1,753 
+red-1,753 
+red-1,753 
+red-1,753download 
+napping-101,752 
+napping-101,752 
+napping-101,752 
+napping-101,752 
+napping-101,752 
+napping-101,752download 
+empire-breakout,751 
+empire-breakout,751 
+empire-breakout,751 
+empire-breakout,751 
+empire-breakout,751 
+empire-breakout,751download 
+empire-lupinone,750 
+empire-lupinone,750 
+empire-lupinone,750 
+empire-lupinone,750 
+empire-lupinone,750 
+empire-lupinone,750download 
+thales-1,749 
+thales-1,749 
+thales-1,749 
+thales-1,749 
+thales-1,749 
+thales-1,749download 
+ica-1,748 
+ica-1,748 
+ica-1,748 
+ica-1,748 
+ica-1,748 
+ica-1,748download 
+digitalworldlocal-electrical,747 
+digitalworldlocal-electrical,747 
+digitalworldlocal-electrical,747 
+digitalworldlocal-electrical,747 
+digitalworldlocal-electrical,747 
+digitalworldlocal-electrical,747download 
+noob-1,746 
+noob-1,746 
+noob-1,746 
+noob-1,746 
+noob-1,746 
+noob-1,746download 
+❯ cat log.log | grep 'href="/entry/' | tr -d '#' | sed 's/entry/ /' | awk '{print $3}' | tr -d '/' | sed 's/dowload/ /' | sed 's/"/ /' | tr -d '>' | tr -d ' ' | uniq
+matrix-breakout-2-morpheus,757
+matrix-breakout-2-morpheus,757download
+web-machine-n7,756
+web-machine-n7,756download
+the-planets-earth,755
+the-planets-earth,755download
+jangow-101,754
+jangow-101,754download
+red-1,753
+red-1,753download
+napping-101,752
+napping-101,752download
+empire-breakout,751
+empire-breakout,751download
+empire-lupinone,750
+empire-lupinone,750download
+thales-1,749
+thales-1,749download
+ica-1,748
+ica-1,748download
+digitalworldlocal-electrical,747
+digitalworldlocal-electrical,747download
+noob-1,746
+noob-1,746download
+
+    ~/E/j/ejer javascript por pantalla - inputs/scrapping-web  ✔  
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+
 
 
 //////////////////////////////////////////
