@@ -7,6 +7,10 @@ namecabecera="cabecera"
 navclass="border-grey"
 idmain="main"
 idsection="section"
+ejemplojs="ejemplo.js"
+href1="#"
+href2="#"
+href3="#"
 
 # Function to set user-defined values for variables
 set_variables() {
@@ -16,6 +20,10 @@ set_variables() {
     read -r -p "Cambiar en header el nombre de la clase (por ejemplo, border-grey): " claseheader
     read -r -p "Cambiar en header el nombre del atributo name (por ejemplo, cabecera): " namecabecera
     read -r -p "Cambiar en nav el nombre de la clase del nav (por ejemplo, border-grey): " navclass
+    read -r -p "Cambiar en nombre el nombre del archivo javascript (por ejemplo, ejemplo.js): " navclass
+    read -r -p "Cambiar en nav in ul in li la ruta1(Esta:# puedes poner link url): " href1
+    read -r -p "Cambiar en nav in ul in li la ruta2(por ejemplo, #): " href2
+    read -r -p "Cambiar en nav in ul in li la ruta3(por ejemplo, #): " href3
 }
 
 # Menu for user choice
@@ -46,7 +54,7 @@ html_content='<!DOCTYPE html>
 
     <!-- <script defer src="ejemplo.js"></script> -->
     <!-- <script src="ejemplo.js" async></script> -->
-    <script defer src="ejemplo.js"></script>
+    <script defer src="'$ejemplojs'"></script>
     
     <title>Dom</title>
 </head>
@@ -56,9 +64,9 @@ html_content='<!DOCTYPE html>
     </header>
     <nav class="'"$navclass"'">
         <ul>
-            <li><a href="#">LINK 1</a></li>
-            <li><a href="#">LINK 2</a></li>
-            <li><a href="#">LINK 3</a></li>
+            <li><a href="'$href1'">LINK 1</a></li>
+            <li><a href="'$href2'">LINK 2</a></li>
+            <li><a href="'$href3'">LINK 3</a></li>
         </ul>
     </nav>
     
