@@ -2,13 +2,13 @@
 
 # Función para descargar la página web y guardarla en un archivo temporal
 function descargar_pagina_temporal {
-  curl https://www.vulnhub.com/ > temporal.log 2>/dev/null
+  curl https://www.vulnhub.com/ >temporal.log 2>/dev/null
 }
 
 # Función para mostrar un menú interactivo
 function mostrar_menu {
   echo "Estas son las máquinas disponibles:"
-  for ((i=0; i<${#machines[@]}; i++)); do
+  for ((i = 0; i < ${#machines[@]}; i++)); do
     echo "$i: ${machines[i]}"
   done
 }
@@ -58,4 +58,5 @@ else
   mv temporal.log log.log
   echo "Archivo log.log creado y poblado."
   echo "Por favor, ejecuta el script nuevamente para buscar máquinas."
+
 fi

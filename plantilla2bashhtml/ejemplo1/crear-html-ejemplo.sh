@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Solicitar nombres de variables al usuario
+read -p "Introduce el nombre del id de header (por ejemplo, header): " variable1header
+read -p "Introduce el nombre del id de main (por ejemplo, main): " variable2main
+read -p "Introduce el nombre del id de section (por ejemplo, section): " variable3section
+
+
+
 # Nombre del archivo HTML que deseas crear
 archivo="mi_pagina.html"
 
@@ -19,7 +26,7 @@ html_content='<!DOCTYPE html>
     <title>Dom</title>
 </head>
 <body>
-    <header id="header" class="border-grey" name="cabecera">
+    <header id="'$variable1header'" class="border-grey" name="cabecera">
         <h1>Mi web/blog para trastear con el DOM</h1>
     </header>
     <nav class="border-grey">
@@ -30,9 +37,9 @@ html_content='<!DOCTYPE html>
         </ul>
     </nav>
     
-    <main id="main">
+    <main id="'$variable2main'">
         <!-- beforebegin -->
-        <section id="section" class="border-grey" nombre="meloinvento">
+        <section id="'$variable3section'" class="border-grey" nombre="meloinvento">
             <!-- afeterbegin -->
             <h2>Titulo de la seccion</h2>
             <article class="border-grey">
