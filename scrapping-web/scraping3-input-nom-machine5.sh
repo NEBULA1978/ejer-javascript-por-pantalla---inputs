@@ -12,7 +12,21 @@ if [ -f log.log ]; then
   echo "Estas son las máquinas disponibles:"
 
   # Utilizar mapfile to read the output into an array
-  mapfile -t machines < <(grep 'href="/entry/' log.log | tr -d '#' | sed 's/entry/ /; s/\/" download="/ /' | awk '{print $3}' | tr -d '/' | sed 's/"/ /' | tr -d '>' | tr -d ' ' | uniq)
+  # Utilizar mapfile para leer la salida en un arreglo
+# El comando entre paréntesis '<(...)' se utiliza para crear un proceso en segundo plano y obtener su salida
+# Luego, mapfile se utiliza para leer esa salida y almacenarla en el arreglo 'machines'
+# -t se usa para quitar los caracteres de nueva línea de cada elemento del arreglo
+mapfile -t machines < <(
+  grep 'href="/entry/' log.log |            # Filtrar líneas que contienen 'href="/entry/'
+  tr -d '#' |                              # Eliminar el carácter '#'
+  sed 's/entry/ /; s/\/" download="/ /' |  # Reemplazar 'entry' por espacio y '/" download="' por espacio
+  awk '{print $3}' |                       # Tomar el tercer campo (nombre de la máquina)
+  tr -d '/' |                             # Eliminar barras '/'
+  sed 's/"/ /' |                           # Reemplazar comillas dobles por espacio
+  tr -d '>' |                             # Eliminar el carácter '>'
+  tr -d ' ' |                             # Eliminar espacios en blanco
+  uniq                                    # Eliminar duplicados
+)
 
   # Mostrando las máquinas disponibles junto con sus números
   for ((i=0; i<${#machines[@]}; i++)); do
