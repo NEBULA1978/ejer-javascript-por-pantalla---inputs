@@ -7,7 +7,9 @@ read -p -r "Introduce el nombre del id de section (por ejemplo, section): " vari
 
 # Solicitar nombres de variables al usuario para camniar CLASES varias
 # No escribes nada?
-read -p -r "Cambiar en header el nombre de la clase :por ejejmplo border-grey:" clasebordergrey
+read -p -r "Cambiar en header el nombre de la clase :por ejemplo border-grey: " clasebordergrey
+read -p -r "Cambiar en header el nombre de el atributo name :por ejemplo cabecera: " cabecera
+read -p -r "Cambiar en header el nombre de la clase del nav:por ejemplo border-grey: " navbordergrey
 
 
 
@@ -31,10 +33,10 @@ html_content='<!DOCTYPE html>
     <title>Dom</title>
 </head>
 <body>
-    <header id="'$variable1header'" class="'$clasebordergrey'" name="cabecera">
+    <header id="'$variable1header'" class="'$clasebordergrey'" name="'$cabecera'">
         <h1>Mi web/blog para trastear con el DOM</h1>
     </header>
-    <nav class="border-grey">
+    <nav class="'$navbordergrey">
         <ul>
             <li><a href="#">LINK 1</a></li>
             <li><a href="#">LINK 2</a></li>
