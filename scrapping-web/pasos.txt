@@ -761,7 +761,31 @@ noob-1,746download
 //////////////////////////////////////////
 //////////////////////////////////////////
 
+Refacctorizado todo en una expresion, explicación:
 
+Explicación del comando que extrae los nombres de las máquinas disponibles de la página web de VulnHub:
+
+bash
+
+cat log.log | grep 'href="/entry/' | sed -n 's/.*href="\/entry\/\([^\/"]*\).*/\1/p' | uniq
+
+    cat log.log: Este comando muestra el contenido del archivo log.log. Es decir, muestra el contenido de la página web que se ha descargado previamente con wget.
+
+    grep 'href="/entry/': El comando grep se utiliza para buscar líneas que contengan la cadena 'href="/entry/'. Esto se hace para identificar las líneas que contienen información sobre las máquinas disponibles en VulnHub.
+
+    sed -n 's/.*href="\/entry\/\([^\/"]*\).*/\1/p': Este comando sed se utiliza para procesar las líneas encontradas por grep y extraer los nombres de las máquinas. Veamos el detalle:
+        -n: Hace que sed no imprima las líneas por defecto, para que podamos controlar la salida.
+        's/.*href="\/entry\/\([^\/"]*\).*/\1/p': Este es un comando de sustitución en sed. Aquí está cómo funciona paso a paso:
+            s/: Indica que vamos a realizar una sustitución.
+            .*href="\/entry\/: Busca cualquier texto que comience con .*href="/entry/.
+            \([^\/"]*\): Esto es una expresión regular que captura cualquier texto que no contenga / ni ", y lo almacena en un grupo de captura (representado por \(...\)).
+            .*\/entry\/: Busca cualquier texto que termine con "/entry/.
+            \1: Reemplaza la línea con el contenido del grupo de captura, que es el nombre de la máquina.
+            /p: Imprime la línea resultante.
+
+    uniq: Este comando se utiliza para eliminar líneas duplicadas en la salida. En este contexto, elimina cualquier nombre de máquina duplicado que pudiera aparecer en la página web.
+
+En resumen, este comando toma el contenido de log.log, busca las líneas que contienen información sobre las máquinas disponibles en VulnHub, extrae sus nombres y elimina cualquier duplicado, produciendo una lista única de nombres de máquinas disponibles.
 
 //////////////////////////////////////////
 //////////////////////////////////////////
