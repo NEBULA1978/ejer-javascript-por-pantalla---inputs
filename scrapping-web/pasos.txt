@@ -165,7 +165,7 @@ Estas son las maquinas disponibles:
 
 //////////////////////////////////////////
 //////////////////////////////////////////
-              Busco      ""          Elimino con tr los #   Sustituyo entry por spacion blanco
+              Busco      ""          Elimino con tr los #   Sustituyo entry por spacio en blanco
 cat log.log | grep 'href="/entry/' |       tr -d '#'      | sed 's/entry/ /' 
 
 
@@ -410,7 +410,7 @@ noob-1,746download"
 //////////////////////////////////////////
 //////////////////////////////////////////
 
-Quitamos con sed la aplabra dowload: sed 's/dowload/ /'
+Quitamos con sed la palabra dowload: sed 's/dowload/ /'
 
 tr -d '#' | sed 's/entry/ /' | awk '{print $3}' | tr -d '/' | sed 's/dowload/ /'
 matrix-breakout-2-morpheus,757">

@@ -17,3 +17,4 @@ cat precios_filtrados.txt
 
 # Eliminar archivos temporales
 rm precios.txt
+
