@@ -11,8 +11,8 @@ if [ -f log.log ]; then
   # Extraer y mostrar las máquinas disponibles
   echo "Estas son las máquinas disponibles:"
 
-  # Extrayendo las máquinas disponibles y almacenándolas en un array
-  machines=($(cat log.log | grep 'href="/entry/' | tr -d '#' | sed 's/entry/ /; s/\/" download="/ /' | awk '{print $3}' | tr -d '/' | sed 's/"/ /' | tr -d '>' | tr -d ' ' | uniq))
+  # Utilizar mapfile to read the output into an array
+  mapfile -t machines < <(grep 'href="/entry/' log.log | tr -d '#' | sed 's/entry/ /; s/\/" download="/ /' | awk '{print $3}' | tr -d '/' | sed 's/"/ /' | tr -d '>' | tr -d ' ' | uniq)
 
   # Mostrando las máquinas disponibles junto con sus números
   for ((i=0; i<${#machines[@]}; i++)); do
@@ -20,7 +20,7 @@ if [ -f log.log ]; then
   done
 
   # Solicitar al usuario que ingrese el número o el nombre de la máquina
-  read -p "Ingresa el número o el nombre de la máquina que deseas: " input
+  read -r -p "Ingresa el número o el nombre de la máquina que deseas: " input
 
   # Verificar si el valor ingresado es un número
   if [[ $input =~ ^[0-9]+$ ]]; then
