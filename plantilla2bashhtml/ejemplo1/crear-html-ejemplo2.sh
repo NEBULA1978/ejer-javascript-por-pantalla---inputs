@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Solicitar nombres de variables al usuario para cambiar IDS varios
-read -p "Introduce el nombre del id de header (por ejemplo, header): " variable1header
-read -p "Introduce el nombre del id de main (por ejemplo, main): " variable2main
-read -p "Introduce el nombre del id de section (por ejemplo, section): " variable3section
+read -p "Introduce el nombre del id de header (por ejemplo, header): " id1header
+read -p "Introduce el nombre del id de main (por ejemplo, main): " idmain
+read -p "Introduce el nombre del id de section (por ejemplo, section): " idsection
 
 # Solicitar nombres de variables al usuario para cambiar CLASES varias
-read -p "Cambiar en header el nombre de la clase (por ejemplo, border-grey): " clasebordergrey
-read -p "Cambiar en header el nombre del atributo name (por ejemplo, cabecera): " cabecera
-read -p "Cambiar en header el nombre de la clase del nav (por ejemplo, border-grey): " navbordergrey
+read -p "Cambiar en header el nombre de la clase (por ejemplo, border-grey): " claseheader
+read -p "Cambiar en header el nombre del atributo name (por ejemplo, cabecera): " namecabecera
+read -p "Cambiar en nav el nombre de la clase del nav (por ejemplo, border-grey): " navclass
 
 # Nombre del archivo HTML que deseas crear
 archivo="mi_pagina.html"
@@ -29,10 +29,10 @@ html_content='<!DOCTYPE html>
     <title>Dom</title>
 </head>
 <body>
-    <header id="'"$variable1header"'" class="'"$clasebordergrey"'" name="'"$cabecera"'">
+    <header id="'"$id1header"'" class="'"$claseheader"'" name="'"$namecabecera"'">
         <h1>Mi web/blog para trastear con el DOM</h1>
     </header>
-    <nav class="'"$navbordergrey"'">
+    <nav class="'"$navclass"'">
         <ul>
             <li><a href="#">LINK 1</a></li>
             <li><a href="#">LINK 2</a></li>
@@ -40,9 +40,9 @@ html_content='<!DOCTYPE html>
         </ul>
     </nav>
     
-    <main id="'"$variable2main"'">
+    <main id="'"$idmain"'">
         <!-- beforebegin -->
-        <section id="'"$variable3section"'" class="border-grey" nombre="meloinvento">
+        <section id="'"$idsection"'" class="border-grey" nombre="meloinvento">
             <!-- afeterbegin -->
             <h2>Titulo de la seccion</h2>
             <article class="border-grey">
