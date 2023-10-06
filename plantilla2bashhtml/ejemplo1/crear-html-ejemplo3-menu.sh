@@ -1,19 +1,41 @@
 #!/bin/bash
 
-# Solicitar nombres de variables al usuario para cambiar IDS varios
-read -r -p "Introduce el nombre del id de header (por ejemplo, header): " id1header
-read -r -p "Introduce el nombre del id de main (por ejemplo, main): " idmain
-read -r -p "Introduce el nombre del id de section (por ejemplo, section): " idsection
+# Define default values for variables
+id1header="header"
+claseheader="border-grey"
+namecabecera="cabecera"
+navclass="border-grey"
+idmain="main"
+idsection="section"
 
-# Solicitar nombres de variables al usuario para cambiar CLASES varias
-read -r -p "Cambiar en header el nombre de la clase (por ejemplo, border-grey): " claseheader
-read -r -p "Cambiar en header el nombre del atributo name (por ejemplo, cabecera): " namecabecera
-read -r -p "Cambiar en nav el nombre de la clase del nav (por ejemplo, border-grey): " navclass
+# Function to set user-defined values for variables
+set_variables() {
+    read -r -p "Introduce el nombre del id de header (por ejemplo, header): " id1header
+    read -r -p "Introduce el nombre del id de main (por ejemplo, main): " idmain
+    read -r -p "Introduce el nombre del id de section (por ejemplo, section): " idsection
+    read -r -p "Cambiar en header el nombre de la clase (por ejemplo, border-grey): " claseheader
+    read -r -p "Cambiar en header el nombre del atributo name (por ejemplo, cabecera): " namecabecera
+    read -r -p "Cambiar en nav el nombre de la clase del nav (por ejemplo, border-grey): " navclass
+}
 
-# Nombre del archivo HTML que deseas crear
+# Menu for user choice
+echo "1. Modificar variables"
+echo "2. Usar valores por defecto"
+read -r -p "Selecciona una opción (1/2): " choice
+
+case "$choice" in
+    1)
+        set_variables ;;
+    2)
+        echo "Usando valores por defecto." ;;
+    *)
+        echo "Opción no válida. Usando valores por defecto." ;;
+esac
+
+# Name of the file you want to create
 archivo="mi_pagina.html"
 
-# Contenido del archivo HTML
+# Contenido del archivo HTML with variables
 html_content='<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,8 +81,8 @@ html_content='<!DOCTYPE html>
 </body>
 </html>'
 
-# Crear el archivo HTML
+# Create the HTML file
 echo "$html_content" > "$archivo"
 
-# Mensaje de confirmación
+# Confirmation message
 echo "Archivo HTML '$archivo' creado con éxito."
